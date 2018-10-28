@@ -54,8 +54,9 @@ namespace AwesomePokerGameSln {
     }
 
     private void FrmPlaygame_FormClosed(object sender, FormClosedEventArgs e) {
-      foreach (Form f in Application.OpenForms)
-        f.Close();
+            Application.Exit(); // Gabrielle: Added this because it crashed every time I tried to close it 
+        //foreach (Form f in Application.OpenForms)
+        //f.Close();
     }
 
     private void FrmPlaygame_Load(object sender, EventArgs e) {
