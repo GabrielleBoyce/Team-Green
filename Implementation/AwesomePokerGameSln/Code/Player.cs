@@ -6,16 +6,32 @@ using System.Threading.Tasks;
 
 namespace AwesomePokerGameSln.Code
 {
+    //(lazy) Singleton Class
     class Player
     {
+
+        private static Player instance;
         private int money;
         private string name;
 
-        public Player()
+        private Player()
         {
             name = "guest";
             money = 500;
       
+        }
+
+        //get instance
+        public static Player Instance
+        {
+            get
+            {
+                if(instance == null)
+                {
+                    instance = new Player();
+                }
+                return instance;
+            }
         }
 
         public int getMoney()
@@ -75,9 +91,10 @@ namespace AwesomePokerGameSln.Code
             //go thru dictionary and build string; also change money amount for target
             foreach(KeyValuePair<string, int> player in playerMoneyDict)
             {
-
-                if(player.Key == name)
-                    saveInfo = saveInfo + player.Key + " " + money.ToString() + ",";
+                if (player.Key == "guest")
+                    continue;
+                else if (player.Key == name)
+                    saveInfo = saveInfo + player.Key + " " + money.ToString() + ","; 
                 else
                     saveInfo = saveInfo + player.Key + " " + player.Value.ToString() + ",";
             }

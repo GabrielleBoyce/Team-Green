@@ -10,7 +10,7 @@ namespace AwesomePokerGameSln {
     }
 
     private void btnQuit_Click(object sender, EventArgs e) {
-      Application.Exit();
+            Application.Exit();
     }
 
     private void btnViewRuleBook_Click(object sender, EventArgs e) {

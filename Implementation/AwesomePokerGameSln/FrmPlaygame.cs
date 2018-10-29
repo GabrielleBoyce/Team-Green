@@ -17,7 +17,6 @@ namespace AwesomePokerGameSln {
     private PictureBox[] dealerCardPics;
     private Hand playerHand;
     private Hand dealerHand;
-    private Player player = new Player();
 
     public FrmPlaygame() {
       InitializeComponent();
@@ -56,9 +55,7 @@ namespace AwesomePokerGameSln {
     }
 
     private void FrmPlaygame_FormClosed(object sender, FormClosedEventArgs e) {
-            
-            player.savePlayerMoney(player.getName(), player.getMoney()); //save player's money on exit
-
+            Player.Instance.savePlayerMoney(Player.Instance.getName(), Player.Instance.getMoney());
             Application.Exit(); // Gabrielle: Added this because it crashed every time I tried to close it 
             //Adam: I think this comment info goes into the description when you merge branches and not in the code
 
