@@ -17,6 +17,7 @@ namespace AwesomePokerGameSln {
     private PictureBox[] dealerCardPics;
     private Hand playerHand;
     private Hand dealerHand;
+    private Player player = new Player();
 
     public FrmPlaygame() {
       InitializeComponent();
@@ -28,6 +29,7 @@ namespace AwesomePokerGameSln {
       for (int c = 1; c <= 5; c++) {
         dealerCardPics[c - 1] = this.Controls.Find("pictureBox" + c.ToString(), true)[0] as PictureBox;
       }
+
     }
 
     private void dealCards() {
@@ -54,9 +56,12 @@ namespace AwesomePokerGameSln {
     }
 
     private void FrmPlaygame_FormClosed(object sender, FormClosedEventArgs e) {
+            
+            player.savePlayerMoney(player.getName(), player.getMoney()); //save player's money on exit
+
             Application.Exit(); // Gabrielle: Added this because it crashed every time I tried to close it 
-        //foreach (Form f in Application.OpenForms)
-        //f.Close();
+            //Adam: I think this comment info goes into the description when you merge branches and not in the code
+
     }
 
     private void FrmPlaygame_Load(object sender, EventArgs e) {
