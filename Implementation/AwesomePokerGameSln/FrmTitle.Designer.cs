@@ -191,12 +191,14 @@
             this.selectPlayerToolStripMenuItem.Name = "selectPlayerToolStripMenuItem";
             this.selectPlayerToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.selectPlayerToolStripMenuItem.Text = "Select Player";
+            this.selectPlayerToolStripMenuItem.Click += new System.EventHandler(this.selectPlayer_Click);
             // 
             // addPlayerToolStripMenuItem : Gabrielle: The "Add Player" button under "Player"
             // 
             this.addPlayerToolStripMenuItem.Name = "addPlayerToolStripMenuItem";
             this.addPlayerToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.addPlayerToolStripMenuItem.Text = "Add Player";
+            this.addPlayerToolStripMenuItem.Click += new System.EventHandler(this.addPlayer_Click);
             // 
             // FrmTitle
             // 

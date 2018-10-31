@@ -50,11 +50,23 @@
   <ItemGroup>
     <Compile Include="Code\CardImageHelper.cs" />
     <Compile Include="Code\Player.cs" />
+    <Compile Include="frmAddplayer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddplayer.Designer.cs">
+      <DependentUpon>frmAddplayer.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPlaygame.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmPlaygame.Designer.cs">
       <DependentUpon>FrmPlaygame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSelectPlayer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSelectPlayer.Designer.cs">
+      <DependentUpon>FrmSelectPlayer.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmTitle.cs">
       <SubType>Form</SubType>
@@ -64,8 +76,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAddplayer.resx">
+      <DependentUpon>frmAddplayer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmPlaygame.resx">
       <DependentUpon>FrmPlaygame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSelectPlayer.resx">
+      <DependentUpon>FrmSelectPlayer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTitle.resx">
       <DependentUpon>FrmTitle.cs</DependentUpon>
