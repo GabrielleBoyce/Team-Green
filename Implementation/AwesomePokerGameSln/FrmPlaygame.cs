@@ -41,7 +41,7 @@ namespace AwesomePokerGameSln {
         cards[index++] = card;
         playerCardPic.BackgroundImage = CardImageHelper.cardToBitmap(card);
       }
-      dealerHand = new Hand(cards);
+      playerHand = new Hand(cards);
       cards = new CardType[5];
       index = 0;
       foreach (PictureBox dealerCardPic in dealerCardPics) {
@@ -50,8 +50,19 @@ namespace AwesomePokerGameSln {
         cards[index++] = card;
         dealerCardPic.BackgroundImage = CardImageHelper.cardToBitmap(card);
       }
-      playerHand = new Hand(cards);
-      lblHandType.Text = playerHand.getHandType().ToString();
+      dealerHand = new Hand(cards);
+      lblHandType.Text = playerHand.getHandType().ToString(); // MadG: I don't know why but player is dealer now
+      
+      // MadG: Logic for winning, losing, drawing
+      if (playerHand.getHandScore() > dealerHand.getHandScore()) { // MadG: Logic is technically backwards due to player = dealer
+                lblWinLose.Text = "LOSE...";
+      }
+      else if (playerHand.getHandScore() == dealerHand.getHandScore()) {
+                lblWinLose.Text = "DRAW!";
+      }
+      else {
+                lblWinLose.Text = "WIN!";
+      }
     }
 
     private void FrmPlaygame_FormClosed(object sender, FormClosedEventArgs e) {
