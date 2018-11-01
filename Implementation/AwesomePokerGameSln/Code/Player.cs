@@ -14,11 +14,31 @@ namespace AwesomePokerGameSln.Code
         private int money;
         private string name;
 
+        private List<Chip> chips;
+
         private Player()
         {
             name = "guest";
             money = 500;
-      
+
+            chips = new List<Chip>();
+            addChip(5);
+            addChip(10);
+            addChip(5);
+            addChip(10);
+            addChip(5);
+            addChip(10);
+            addChip(100);
+            addChip(25);
+            addChip(10);
+            addChip(100);
+            addChip(25);
+            addChip(10);
+            addChip(100);
+            addChip(25);
+            addChip(10);
+            addChip(100);
+            addChip(25);
         }
 
         //get instance
@@ -102,6 +122,63 @@ namespace AwesomePokerGameSln.Code
             //write string to settings
             Properties.Settings.Default.playerInfo = saveInfo;
             Properties.Settings.Default.Save();
+        }
+
+        public void addChip(int value)
+        {
+            chips.Add(new Chip(value));
+        }
+
+        public int getTotalMoney()
+        {
+            int money = 0;
+            foreach(Chip chip in chips)
+            {
+                money += chip.getValue();
+            }
+            return money;
+        }
+
+        public List<Chip> getChips()
+        {
+            return chips;
+        }
+
+        public void sortMoney()
+        {
+            List<Chip> sortedList = new List<Chip>();
+            for(int i = 0; i < 5; i++)
+            {
+                int lookingFor = 0;
+                if(i == 0)
+                {
+                    lookingFor = 1;
+                }
+                else if(i == 1)
+                {
+                    lookingFor = 5;
+                }
+                else if(i == 2)
+                {
+                    lookingFor = 10;
+                }
+                else if(i == 3)
+                {
+                    lookingFor = 25;
+                }
+                else if(i == 4)
+                {
+                    lookingFor = 100;
+                }
+                foreach (Chip chip in chips)
+                {
+                    if(chip.getValue() == lookingFor)
+                    {
+                        sortedList.Add(chip);
+                    }
+                }
+            }
+            chips = sortedList;
         }
     }
 }

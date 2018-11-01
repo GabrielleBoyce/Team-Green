@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Code\CardImageHelper.cs" />
+    <Compile Include="Code\Chip.cs" />
     <Compile Include="Code\Player.cs" />
     <Compile Include="frmAddplayer.cs">
       <SubType>Form</SubType>
