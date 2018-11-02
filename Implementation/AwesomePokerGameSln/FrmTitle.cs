@@ -83,6 +83,7 @@ namespace AwesomePokerGameSln {
             addPlayer.Show();
         }
 
+        // Gabrielle:  gambling addiction form generated when "Gambling Addiction?" is clicked
         private void gamblingAddictionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmGamblingAddiction gamblingAddictionForm = new frmGamblingAddiction();

@@ -2,6 +2,11 @@
 {
     partial class frmGamblingAddiction
     {
+        /*
+         * Gabrielle: The form for gambling addiction that pops up when "Gambling Addiction? is clicked
+         *  from the tool bar 
+         **/
+         
         /// <summary>
         /// Required designer variable.
         /// </summary>

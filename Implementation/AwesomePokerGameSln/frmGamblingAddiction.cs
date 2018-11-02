@@ -12,6 +12,9 @@ namespace AwesomePokerGameSln
 {
     public partial class frmGamblingAddiction : Form
     {
+        /**
+         * Gabrielle: added a form for gambling addiction hotline access 
+         **/ 
         public frmGamblingAddiction()
         {
             InitializeComponent();
