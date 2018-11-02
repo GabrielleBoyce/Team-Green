@@ -148,14 +148,15 @@
             // preferencesToolStripMenuItem
             // 
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.preferencesToolStripMenuItem.Text = "Preferences";
             // 
             // sendAReportToolStripMenuItem
             // 
             this.sendAReportToolStripMenuItem.Name = "sendAReportToolStripMenuItem";
-            this.sendAReportToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.sendAReportToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.sendAReportToolStripMenuItem.Text = "Send A Report";
+            this.sendAReportToolStripMenuItem.Click += new System.EventHandler(this.sendAReportToolStripMenuItem_Click);
             // 
             // toolStripDropDownButton2
             // 
@@ -190,14 +191,14 @@
             // selectPlayerToolStripMenuItem
             // 
             this.selectPlayerToolStripMenuItem.Name = "selectPlayerToolStripMenuItem";
-            this.selectPlayerToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.selectPlayerToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
             this.selectPlayerToolStripMenuItem.Text = "Select Player";
             this.selectPlayerToolStripMenuItem.Click += new System.EventHandler(this.selectPlayer_Click);
             // 
             // addPlayerToolStripMenuItem
             // 
             this.addPlayerToolStripMenuItem.Name = "addPlayerToolStripMenuItem";
-            this.addPlayerToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.addPlayerToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
             this.addPlayerToolStripMenuItem.Text = "Add Player";
             this.addPlayerToolStripMenuItem.Click += new System.EventHandler(this.addPlayer_Click);
             // 

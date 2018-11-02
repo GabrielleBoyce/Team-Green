@@ -119,6 +119,7 @@
             this.sendAReportToolStripMenuItem.Name = "sendAReportToolStripMenuItem";
             this.sendAReportToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.sendAReportToolStripMenuItem.Text = "Send A Report";
+            this.sendAReportToolStripMenuItem.Click += new System.EventHandler(this.sendAReportToolStripMenuItem_Click);
             // 
             // toolStripDropDownButton2
             // 

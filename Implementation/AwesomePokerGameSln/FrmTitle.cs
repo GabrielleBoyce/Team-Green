@@ -89,5 +89,12 @@ namespace AwesomePokerGameSln {
             frmGamblingAddiction gamblingAddictionForm = new frmGamblingAddiction();
             gamblingAddictionForm.Show();
         }
+
+        // Gabrielle: send a report form generated when "Send a Report" is clicked
+        private void sendAReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReport reportForm = new frmReport();
+            reportForm.Show();
+        }
     }
 }
