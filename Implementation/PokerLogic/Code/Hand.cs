@@ -22,9 +22,20 @@ namespace AwesomePokerGameSln.Code {
     private Tuple<int, int>[] cards;
     private int handScore; //9 is worst, high by default
 
+    private Boolean hidden; // Josh: used to determine when to hide cards
+
     public Hand(Tuple<int, int>[] cards) {
       this.cards = cards;
     }
+
+    public void setHidden(Boolean b)
+        {
+            hidden = b;
+        }
+    public Boolean isHidden()
+        {
+            return hidden;
+        }
 
     public HandType getHandType() {
       HandType handType = HandType.HIGH;

@@ -28,29 +28,35 @@ namespace AwesomePokerGameSln {
             for (int c = 1; c <= 5; c++) {
                 dealerCardPics[c - 1] = this.Controls.Find("pictureBox" + c.ToString(), true)[0] as PictureBox;
             }
-
         }
 
         private void dealCards() {
+
             deck.shuffleDeck();
-            Tuple<int, int>[] cards = new Tuple<int, int>[5];
+            Tuple<int, int>[] cards = new Tuple<int, int>[5]; 
+
             int index = 0;
+            playerHand = new Hand(cards);
             foreach (PictureBox playerCardPic in playerCardPics) {
                 CardType card = deck.nextCard();
                 //CardType card = new CardType(index, inde);
                 cards[index++] = card;
-                playerCardPic.BackgroundImage = CardImageHelper.cardToBitmap(card);
+                playerCardPic.BackgroundImage = CardImageHelper.cardToBitmap(card, playerHand.isHidden());
             }
-            playerHand = new Hand(cards);
+
             cards = new CardType[5];
             index = 0;
+            dealerHand = new Hand(cards);
+
+            // Josh: TEST hide dealer's cards
+            //dealerHand.setHidden(true);
+
             foreach (PictureBox dealerCardPic in dealerCardPics) {
                 CardType card = deck.nextCard();
                 //CardType card = new CardType(index, inde);
                 cards[index++] = card;
-                dealerCardPic.BackgroundImage = CardImageHelper.cardToBitmap(card);
+                dealerCardPic.BackgroundImage = CardImageHelper.cardToBitmap(card, dealerHand.isHidden());
             }
-            dealerHand = new Hand(cards);
             lblHandType.Text = playerHand.getHandType().ToString(); // MadG: I don't know why but player is dealer now
 
             // MadG: Logic for winning, losing, drawing
@@ -112,6 +118,11 @@ namespace AwesomePokerGameSln {
     }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
         {
 
         }
