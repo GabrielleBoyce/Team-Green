@@ -17,6 +17,7 @@ namespace AwesomePokerGameSln {
         private PictureBox[] dealerCardPics;
         private Hand playerHand;
         private Hand dealerHand;
+        private int round = 0;
 
         public FrmPlaygame() {
             InitializeComponent();
@@ -57,10 +58,21 @@ namespace AwesomePokerGameSln {
                 cards[index++] = card;
                 dealerCardPic.BackgroundImage = CardImageHelper.cardToBitmap(card, dealerHand.isHidden());
             }
-            lblHandType.Text = playerHand.getHandType().ToString(); // MadG: I don't know why but player is dealer now
+            lblHandType.Text = playerHand.getHandType().ToString();
+
+            while (true)
+            {
+                if (round == 0)
+                {
+                    //Place bets
+
+                    round++;
+                }
+                break;
+            }
 
             // MadG: Logic for winning, losing, drawing
-            if (playerHand.getHandScore() > dealerHand.getHandScore()) { // MadG: Logic is technically backwards due to player = dealer
+            if (playerHand.getHandScore() > dealerHand.getHandScore()) {
                 lblWinLose.Text = "LOSE...";
             }
             else if (playerHand.getHandScore() == dealerHand.getHandScore()) {
@@ -138,6 +150,36 @@ namespace AwesomePokerGameSln {
         {
             frmReport reportForm = new frmReport();
             reportForm.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            dealCards();
+        }
+
+        private void picCard1_Click(object sender, EventArgs e)
+        {
+            picHilight1.Visible = !picHilight1.Visible;
+        }
+
+        private void picCard2_Click(object sender, EventArgs e)
+        {
+            picHilight2.Visible = !picHilight2.Visible;
+        }
+
+        private void picCard3_Click(object sender, EventArgs e)
+        {
+            picHilight3.Visible = !picHilight3.Visible;
+        }
+
+        private void picCard4_Click(object sender, EventArgs e)
+        {
+            picHilight4.Visible = !picHilight4.Visible;
+        }
+
+        private void picCard5_Click(object sender, EventArgs e)
+        {
+            picHilight5.Visible = !picHilight5.Visible;
         }
     }
 }
