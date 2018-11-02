@@ -28,12 +28,12 @@
             this.lblHandType = new System.Windows.Forms.Label();
             this.lblWinLose = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.label1 = new System.Windows.Forms.Label();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.sendAReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
             this.gamblingAddictionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rulesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -103,18 +103,6 @@
             this.toolStrip1.TabIndex = 13;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(751, 443);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(146, 42);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "money:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
             // toolStripDropDownButton1
             // 
             this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
@@ -129,7 +117,7 @@
             // sendAReportToolStripMenuItem
             // 
             this.sendAReportToolStripMenuItem.Name = "sendAReportToolStripMenuItem";
-            this.sendAReportToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.sendAReportToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.sendAReportToolStripMenuItem.Text = "Send A Report";
             // 
             // toolStripDropDownButton2
@@ -149,12 +137,25 @@
             this.gamblingAddictionToolStripMenuItem.Name = "gamblingAddictionToolStripMenuItem";
             this.gamblingAddictionToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
             this.gamblingAddictionToolStripMenuItem.Text = "Gambling Addiction?";
+            this.gamblingAddictionToolStripMenuItem.Click += new System.EventHandler(this.gamblingAddictionToolStripMenuItem_Click);
             // 
             // rulesToolStripMenuItem
             // 
             this.rulesToolStripMenuItem.Name = "rulesToolStripMenuItem";
             this.rulesToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
             this.rulesToolStripMenuItem.Text = "View Rules";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(751, 443);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(146, 42);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "money:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // pictureBox1
             // 

@@ -126,5 +126,11 @@ namespace AwesomePokerGameSln {
         {
 
         }
+
+        private void gamblingAddictionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmGamblingAddiction gamblingAddictionForm = new frmGamblingAddiction();
+            gamblingAddictionForm.Show();
+        }
     }
 }

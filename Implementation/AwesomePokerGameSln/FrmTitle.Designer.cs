@@ -30,15 +30,15 @@
             this.btnQuit = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.picRulebook = new System.Windows.Forms.PictureBox();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip(); // Gabrielle: The toolbar
-            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton(); // Gabrielle: The "Options" drop down button in the tool bar
-            this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem(); // Gabrielle: The "Preferences" button under "Options" 
-            this.sendAReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem(); // Gabrielle: The "Send A Report" button under "Options"
-            this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton(); // Gabrielle: The "Help" drop down button in the tool bar
-            this.gamblingAddictionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem(); // Gabrielle: The "Gambling Addiction?" button under "Help"
-            this.toolStripDropDownButton3 = new System.Windows.Forms.ToolStripDropDownButton(); // Gabrielle: The "Player" drop down button in the tool bar 
-            this.selectPlayerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem(); // Gabrielle: The "Select Player" button under "Player"
-            this.addPlayerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem(); // Gabrielle: the "Add Player" button under "Player"
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sendAReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.gamblingAddictionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripDropDownButton3 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.selectPlayerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addPlayerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.picRulebook)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -120,7 +120,7 @@
             this.picRulebook.TabStop = false;
             this.picRulebook.Visible = false;
             // 
-            // toolStrip1 : Gabrielle: The tool bar 
+            // toolStrip1
             // 
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -133,7 +133,7 @@
             this.toolStrip1.TabIndex = 6;
             this.toolStrip1.Text = "Tools";
             // 
-            // toolStripDropDownButton1 : Gabrielle: The "Options" drop down button in the tool bar
+            // toolStripDropDownButton1
             // 
             this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -145,19 +145,19 @@
             this.toolStripDropDownButton1.Size = new System.Drawing.Size(75, 24);
             this.toolStripDropDownButton1.Text = "Options";
             // 
-            // preferencesToolStripMenuItem : Gabrielle: The "Preferences" button under "Options"
+            // preferencesToolStripMenuItem
             // 
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
             this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.preferencesToolStripMenuItem.Text = "Preferences";
             // 
-            // sendAReportToolStripMenuItem : Gabrielle: The "Send A Report" button under "Options"
+            // sendAReportToolStripMenuItem
             // 
             this.sendAReportToolStripMenuItem.Name = "sendAReportToolStripMenuItem";
             this.sendAReportToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.sendAReportToolStripMenuItem.Text = "Send A Report";
             // 
-            // toolStripDropDownButton2 : Gabrielle: The "Help" drop down button in the tool bar 
+            // toolStripDropDownButton2
             // 
             this.toolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -168,13 +168,14 @@
             this.toolStripDropDownButton2.Size = new System.Drawing.Size(55, 24);
             this.toolStripDropDownButton2.Text = "Help";
             // 
-            // gamblingAddictionToolStripMenuItem : Gabrielle: The "Gambling Addiction?" button under "Help"
+            // gamblingAddictionToolStripMenuItem
             // 
             this.gamblingAddictionToolStripMenuItem.Name = "gamblingAddictionToolStripMenuItem";
             this.gamblingAddictionToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
             this.gamblingAddictionToolStripMenuItem.Text = "Gambling Addiction?";
+            this.gamblingAddictionToolStripMenuItem.Click += new System.EventHandler(this.gamblingAddictionToolStripMenuItem_Click);
             // 
-            // toolStripDropDownButton3 : Gabrielle: The "Player" button in the tool bar 
+            // toolStripDropDownButton3
             // 
             this.toolStripDropDownButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripDropDownButton3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -183,17 +184,17 @@
             this.toolStripDropDownButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton3.Image")));
             this.toolStripDropDownButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton3.Name = "toolStripDropDownButton3";
-            this.toolStripDropDownButton3.Size = new System.Drawing.Size(206, 24);
+            this.toolStripDropDownButton3.Size = new System.Drawing.Size(63, 24);
             this.toolStripDropDownButton3.Text = "Player";
             // 
-            // selectPlayerToolStripMenuItem : Gabrielle: The "Select Player" button under "Player"
+            // selectPlayerToolStripMenuItem
             // 
             this.selectPlayerToolStripMenuItem.Name = "selectPlayerToolStripMenuItem";
             this.selectPlayerToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.selectPlayerToolStripMenuItem.Text = "Select Player";
             this.selectPlayerToolStripMenuItem.Click += new System.EventHandler(this.selectPlayer_Click);
             // 
-            // addPlayerToolStripMenuItem : Gabrielle: The "Add Player" button under "Player"
+            // addPlayerToolStripMenuItem
             // 
             this.addPlayerToolStripMenuItem.Name = "addPlayerToolStripMenuItem";
             this.addPlayerToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
