@@ -18,7 +18,9 @@ namespace AwesomePokerGameSln {
         private Hand playerHand;
         private Hand dealerHand;
         private int round = 0; // MadG: Keeps up with rounds
-        private bool folded = false; // MadG: Tells whether or not player folded
+        private bool playerFolded = false; // MadG: Tells whether or not player folded
+        private bool dealerFolded = false; // MadG: Tells whether or not dealer folded
+        private Random rand = new Random();
 
         public FrmPlaygame() {
             InitializeComponent();
@@ -101,29 +103,62 @@ namespace AwesomePokerGameSln {
             //Adam: I think this comment info goes into the description when you merge branches and not in the code
 
     }
+
+        // MadG: How the dealer thinks
+        private void dealerThoughts()
+        {
+            if (round == 0)
+            {
+                int choice = rand.Next(10);
+                if (choice < 9)
+                {
+                    // Dealer bets
+                }
+                else
+                {
+                    dealerFolded = true;
+                    dealFold.Visible = true;
+                    turnBase();
+                }
+            }
+            else if (round == 1)
+            {
+                //Have dealer select cards to discard randomly
+            }
+            else if (round == 2)
+            {
+                int choice = rand.Next(10);
+                if (choice < 9)
+                {
+                    // Dealer bets
+                }
+                else
+                {
+                    dealerFolded = true;
+                    dealFold.Visible = true;
+                    turnBase();
+                }
+            }
+
+        }
         // MadG: Keeps up with turns
         private void turnBase()
         {
-            if (!folded)
+            if (!playerFolded && !dealerFolded)
             {
                 switch (round)
                 {
                     case 0:
                         //Place bets
+                        dealerThoughts();
                         break;
                     case 1:
                         //Discard/Redraw
+                        dealerThoughts();
                         break;
                     case 2:
                         //Place bets
-                        break;
-                    case 3:
-                        //Reveal cards
-                        winLose();
-                        round++;
-                        break;
-                    case 4:
-                        //Maybe can remove
+                        dealerThoughts();
                         break;
                 }
             }
@@ -136,7 +171,7 @@ namespace AwesomePokerGameSln {
         private void winLose()
         {
             // MadG: Logic for winning, losing, drawing
-            if (playerHand.getHandScore() > dealerHand.getHandScore() || folded)
+            if (playerHand.getHandScore() > dealerHand.getHandScore() || playerFolded)
             {
                 lblWinLose.Text = "LOSE...";
             }
@@ -144,7 +179,7 @@ namespace AwesomePokerGameSln {
             {
                 lblWinLose.Text = "DRAW!";
             }
-            else
+            else if (playerHand.getHandScore() < dealerHand.getHandScore() || dealerFolded)
             {
                 lblWinLose.Text = "WIN!";
             }
@@ -158,7 +193,9 @@ namespace AwesomePokerGameSln {
 
     private void button1_Click(object sender, EventArgs e) { // Redeal
       lblWinLose.Visible = false;
-      folded = false;
+      playerFolded = false;
+      dealerFolded = false;
+      dealFold.Visible = false;
       dealCards();
     }
 
@@ -187,28 +224,31 @@ namespace AwesomePokerGameSln {
 
         private void button3_Click(object sender, EventArgs e) // MadG: Discard button
         {
-            //Discard cards and redraw
-            round++;
-            turnBase();
-            if (picHilight1.Visible)
+            if (round == 1)
             {
-                picHilight1.Visible = !picHilight1.Visible;
-            }
-            if (picHilight2.Visible)
-            {
-                picHilight2.Visible = !picHilight2.Visible;
-            }
-            if (picHilight3.Visible)
-            {
-                picHilight3.Visible = !picHilight3.Visible;
-            }
-            if (picHilight4.Visible)
-            {
-                picHilight4.Visible = !picHilight4.Visible;
-            }
-            if (picHilight5.Visible)
-            {
-                picHilight5.Visible = !picHilight5.Visible;
+                //Discard cards and redraw
+                round++;
+                turnBase();
+                if (picHilight1.Visible)
+                {
+                    picHilight1.Visible = !picHilight1.Visible;
+                }
+                if (picHilight2.Visible)
+                {
+                    picHilight2.Visible = !picHilight2.Visible;
+                }
+                if (picHilight3.Visible)
+                {
+                    picHilight3.Visible = !picHilight3.Visible;
+                }
+                if (picHilight4.Visible)
+                {
+                    picHilight4.Visible = !picHilight4.Visible;
+                }
+                if (picHilight5.Visible)
+                {
+                    picHilight5.Visible = !picHilight5.Visible;
+                }
             }
         }
 
@@ -266,10 +306,10 @@ namespace AwesomePokerGameSln {
                 // Bet money
                 round++;
                 turnBase();
-                if (round == 3)
-                {
-                    winLose();
-                }
+            }
+            if (round == 3)
+            {
+                winLose();
             }
         }
 
@@ -278,13 +318,9 @@ namespace AwesomePokerGameSln {
             if (round == 0 || round == 2)
             {
                 // Fold and Lose
-                folded = true;
+                playerFolded = true;
                 round++;
                 turnBase();
-                if (round == 3)
-                {
-                    winLose();
-                }
             }
 
         }

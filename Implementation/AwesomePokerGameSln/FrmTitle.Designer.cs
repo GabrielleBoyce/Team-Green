@@ -95,7 +95,7 @@
             this.btnQuit.UseVisualStyleBackColor = false;
             this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
             // 
-            // label2
+            // dealFold
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
@@ -103,7 +103,7 @@
             this.label2.ForeColor = System.Drawing.Color.Yellow;
             this.label2.Location = new System.Drawing.Point(48, 272);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
+            this.label2.Name = "dealFold";
             this.label2.Size = new System.Drawing.Size(273, 95);
             this.label2.TabIndex = 4;
             this.label2.Text = "Game";

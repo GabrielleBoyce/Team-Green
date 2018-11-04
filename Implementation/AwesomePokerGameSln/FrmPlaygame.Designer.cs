@@ -54,6 +54,7 @@
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.dealFold = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -92,7 +93,7 @@
             this.lblHandType.Name = "lblHandType";
             this.lblHandType.Size = new System.Drawing.Size(99, 33);
             this.lblHandType.TabIndex = 7;
-            this.lblHandType.Text = "label2";
+            this.lblHandType.Text = "dealFold";
             // 
             // lblWinLose
             // 
@@ -347,7 +348,7 @@
             // 
             this.pictureBox7.Image = global::AwesomePokerGameSln.Properties.Resources.Background_Red;
             this.pictureBox7.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(2800, 1806);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -374,11 +375,24 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // dealFold
+            // 
+            this.dealFold.AutoSize = true;
+            this.dealFold.BackColor = System.Drawing.Color.DimGray;
+            this.dealFold.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dealFold.Location = new System.Drawing.Point(401, 466);
+            this.dealFold.Name = "dealFold";
+            this.dealFold.Size = new System.Drawing.Size(211, 33);
+            this.dealFold.TabIndex = 25;
+            this.dealFold.Text = "Dealer Folded";
+            this.dealFold.Visible = false;
+            // 
             // FrmPlaygame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(879, 525);
+            this.Controls.Add(this.dealFold);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button3);
@@ -467,5 +481,6 @@
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label dealFold;
     }
 }
