@@ -17,7 +17,8 @@ namespace AwesomePokerGameSln {
         private PictureBox[] dealerCardPics;
         private Hand playerHand;
         private Hand dealerHand;
-        private int round = 0;
+        private int round = 0; // MadG: Keeps up with rounds
+        private bool folded = false; // MadG: Tells whether or not player folded
 
         public FrmPlaygame() {
             InitializeComponent();
@@ -32,6 +33,7 @@ namespace AwesomePokerGameSln {
         }
 
         private void dealCards() {
+            round = 0;
 
             deck.shuffleDeck();
             Tuple<int, int>[] cards = new Tuple<int, int>[5]; 
@@ -60,27 +62,7 @@ namespace AwesomePokerGameSln {
             }
             lblHandType.Text = playerHand.getHandType().ToString();
 
-            while (true)
-            {
-                if (round == 0)
-                {
-                    //Place bets
-
-                    round++;
-                }
-                break;
-            }
-
-            // MadG: Logic for winning, losing, drawing
-            if (playerHand.getHandScore() > dealerHand.getHandScore()) {
-                lblWinLose.Text = "LOSE...";
-            }
-            else if (playerHand.getHandScore() == dealerHand.getHandScore()) {
-                lblWinLose.Text = "DRAW!";
-            }
-            else {
-                lblWinLose.Text = "WIN!";
-            }
+            turnBase();
 
             label1.Text = "Money: " + Player.Instance.getTotalMoney(); // Josh: show player's total money
             Player.Instance.sortMoney();
@@ -119,13 +101,64 @@ namespace AwesomePokerGameSln {
             //Adam: I think this comment info goes into the description when you merge branches and not in the code
 
     }
+        // MadG: Keeps up with turns
+        private void turnBase()
+        {
+            if (!folded)
+            {
+                switch (round)
+                {
+                    case 0:
+                        //Place bets
+                        break;
+                    case 1:
+                        //Discard/Redraw
+                        break;
+                    case 2:
+                        //Place bets
+                        break;
+                    case 3:
+                        //Reveal cards
+                        winLose();
+                        round++;
+                        break;
+                    case 4:
+                        //Maybe can remove
+                        break;
+                }
+            }
+            else
+            {
+                winLose();
+            }
+        }
 
-    private void FrmPlaygame_Load(object sender, EventArgs e) {
+        private void winLose()
+        {
+            // MadG: Logic for winning, losing, drawing
+            if (playerHand.getHandScore() > dealerHand.getHandScore() || folded)
+            {
+                lblWinLose.Text = "LOSE...";
+            }
+            else if (playerHand.getHandScore() == dealerHand.getHandScore())
+            {
+                lblWinLose.Text = "DRAW!";
+            }
+            else
+            {
+                lblWinLose.Text = "WIN!";
+            }
+            lblWinLose.Visible = true;
+        }
+
+        private void FrmPlaygame_Load(object sender, EventArgs e) {
       deck = new Deck();
       dealCards();
     }
 
-    private void button1_Click(object sender, EventArgs e) {
+    private void button1_Click(object sender, EventArgs e) { // Redeal
+      lblWinLose.Visible = false;
+      folded = false;
       dealCards();
     }
 
@@ -152,34 +185,71 @@ namespace AwesomePokerGameSln {
             reportForm.Show();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e) // MadG: Discard button
         {
-            dealCards();
+            //Discard cards and redraw
+            round++;
+            turnBase();
+            if (picHilight1.Visible)
+            {
+                picHilight1.Visible = !picHilight1.Visible;
+            }
+            if (picHilight2.Visible)
+            {
+                picHilight2.Visible = !picHilight2.Visible;
+            }
+            if (picHilight3.Visible)
+            {
+                picHilight3.Visible = !picHilight3.Visible;
+            }
+            if (picHilight4.Visible)
+            {
+                picHilight4.Visible = !picHilight4.Visible;
+            }
+            if (picHilight5.Visible)
+            {
+                picHilight5.Visible = !picHilight5.Visible;
+            }
         }
 
         private void picCard1_Click(object sender, EventArgs e)
         {
-            picHilight1.Visible = !picHilight1.Visible;
+            if (round == 1)
+            {
+                picHilight1.Visible = !picHilight1.Visible;
+            }
         }
 
         private void picCard2_Click(object sender, EventArgs e)
         {
-            picHilight2.Visible = !picHilight2.Visible;
+            if (round == 1)
+            {
+                picHilight2.Visible = !picHilight2.Visible;
+            }
         }
 
         private void picCard3_Click(object sender, EventArgs e)
         {
-            picHilight3.Visible = !picHilight3.Visible;
+            if (round == 1)
+            {
+                picHilight3.Visible = !picHilight3.Visible;
+            }
         }
 
         private void picCard4_Click(object sender, EventArgs e)
         {
-            picHilight4.Visible = !picHilight4.Visible;
+            if (round == 1)
+            {
+                picHilight4.Visible = !picHilight4.Visible;
+            }
         }
 
         private void picCard5_Click(object sender, EventArgs e)
         {
-            picHilight5.Visible = !picHilight5.Visible;
+            if (round == 1)
+            {
+                picHilight5.Visible = !picHilight5.Visible;
+            }
         }
 
         // Gabrielle : View Rules button displays rules in play game
@@ -187,6 +257,36 @@ namespace AwesomePokerGameSln {
         {
             Rules viewRules = new Rules();
             viewRules.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e) // Bet
+        {
+            if (round == 0 || round == 2)
+            {
+                // Bet money
+                round++;
+                turnBase();
+                if (round == 3)
+                {
+                    winLose();
+                }
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e) // Fold
+        {
+            if (round == 0 || round == 2)
+            {
+                // Fold and Lose
+                folded = true;
+                round++;
+                turnBase();
+                if (round == 3)
+                {
+                    winLose();
+                }
+            }
+
         }
     }
 }
