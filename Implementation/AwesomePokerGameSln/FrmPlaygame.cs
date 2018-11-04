@@ -17,10 +17,12 @@ namespace AwesomePokerGameSln {
         private PictureBox[] dealerCardPics;
         private Hand playerHand;
         private Hand dealerHand;
-        private int round = 0; // MadG: Keeps up with rounds
-        private bool playerFolded = false; // MadG: Tells whether or not player folded
-        private bool dealerFolded = false; // MadG: Tells whether or not dealer folded
+        private int round = 0;
+        private bool playerFolded = false;
+        private bool dealerFolded = false;
         private Random rand = new Random();
+        private Tuple<int, int>[] cards = new Tuple<int, int>[5];
+
 
         public FrmPlaygame() {
             InitializeComponent();
@@ -38,15 +40,15 @@ namespace AwesomePokerGameSln {
             round = 0;
 
             deck.shuffleDeck();
-            Tuple<int, int>[] cards = new Tuple<int, int>[5]; 
+            //Tuple<int, int>[] cards = new Tuple<int, int>[5];
 
             int index = 0;
             playerHand = new Hand(cards);
             foreach (PictureBox playerCardPic in playerCardPics) {
-                CardType card = deck.nextCard();
-                //CardType card = new CardType(index, inde);
-                cards[index++] = card;
-                playerCardPic.BackgroundImage = CardImageHelper.cardToBitmap(card, playerHand.isHidden());
+               CardType card = deck.nextCard();
+               //CardType card = new CardType(index, inde);
+               cards[index++] = card;
+               playerCardPic.BackgroundImage = CardImageHelper.cardToBitmap(card, playerHand.isHidden());
             }
 
             cards = new CardType[5];
@@ -229,26 +231,45 @@ namespace AwesomePokerGameSln {
                 //Discard cards and redraw
                 round++;
                 turnBase();
+
                 if (picHilight1.Visible)
                 {
                     picHilight1.Visible = !picHilight1.Visible;
+                    CardType card = deck.nextCard();
+                    cards[0] = card;
+                    picCard1.BackgroundImage = CardImageHelper.cardToBitmap(card, playerHand.isHidden());
                 }
                 if (picHilight2.Visible)
                 {
                     picHilight2.Visible = !picHilight2.Visible;
+                    CardType card = deck.nextCard();
+                    cards[1] = card;
+                    picCard2.BackgroundImage = CardImageHelper.cardToBitmap(card, playerHand.isHidden());
                 }
                 if (picHilight3.Visible)
                 {
                     picHilight3.Visible = !picHilight3.Visible;
+                    CardType card = deck.nextCard();
+                    cards[2] = card;
+                    picCard3.BackgroundImage = CardImageHelper.cardToBitmap(card, playerHand.isHidden());
                 }
                 if (picHilight4.Visible)
                 {
                     picHilight4.Visible = !picHilight4.Visible;
+                    CardType card = deck.nextCard();
+                    cards[3] = card;
+                    picCard4.BackgroundImage = CardImageHelper.cardToBitmap(card, playerHand.isHidden());
                 }
                 if (picHilight5.Visible)
                 {
                     picHilight5.Visible = !picHilight5.Visible;
+                    CardType card = deck.nextCard();
+                    cards[4] = card;
+                    picCard5.BackgroundImage = CardImageHelper.cardToBitmap(card, playerHand.isHidden());
                 }
+
+                //playerHand = new Hand(cards);
+                lblHandType.Text = playerHand.getHandType().ToString();
             }
         }
 
