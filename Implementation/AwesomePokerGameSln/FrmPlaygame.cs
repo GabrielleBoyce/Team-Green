@@ -181,5 +181,12 @@ namespace AwesomePokerGameSln {
         {
             picHilight5.Visible = !picHilight5.Visible;
         }
+
+        // Gabrielle : View Rules button displays rules in play game
+        private void rulesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Rules viewRules = new Rules();
+            viewRules.Show();
+        }
     }
 }

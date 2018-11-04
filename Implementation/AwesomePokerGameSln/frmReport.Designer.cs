@@ -3,7 +3,7 @@
     partial class frmReport
     {
         /**
-         * Gabrielle: the form for reporting that appears when "Send A Report" is clicked"
+         * Gabrielle: the form for reporting that appears when "Send A Report" is clicked
          **/
 
         /// <summary>
