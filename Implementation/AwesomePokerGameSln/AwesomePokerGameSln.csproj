@@ -354,6 +354,13 @@
     <Content Include="cardbg.jpg" />
     <None Include="Resources\Background_Red.png" />
     <None Include="Resources\1600x900-pastel-gray-solid-color-background.jpg" />
+    <None Include="Resources\Background_Blue.jpg" />
+    <None Include="Resources\Background_Cats.jpg" />
+    <None Include="Resources\Background_Gray.jpg" />
+    <None Include="Resources\Background_Green.jpg" />
+    <None Include="Resources\Background_Orange.jpg" />
+    <None Include="Resources\Background_Stars.jpg" />
+    <None Include="Resources\Background_Wood.jpg" />
     <Content Include="Resources\cardbg.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
