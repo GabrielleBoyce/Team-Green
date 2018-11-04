@@ -103,6 +103,16 @@ namespace AwesomePokerGameSln.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1600x900_pastel_gray_solid_color_background {
+            get {
+                object obj = ResourceManager.GetObject("1600x900-pastel-gray-solid-color-background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _2_of_clubs {
             get {
                 object obj = ResourceManager.GetObject("_2_of_clubs", resourceCulture);

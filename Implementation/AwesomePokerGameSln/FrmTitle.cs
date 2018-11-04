@@ -96,5 +96,11 @@ namespace AwesomePokerGameSln {
             frmReport reportForm = new frmReport();
             reportForm.Show();
         }
+
+        private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Preferences formPrefs = new Preferences();
+            formPrefs.Show();
+        }
     }
 }

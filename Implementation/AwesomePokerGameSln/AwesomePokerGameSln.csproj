@@ -93,6 +93,12 @@
     <Compile Include="frmViewRules.Designer.cs">
       <DependentUpon>frmViewRules.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPreferences.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPreferences.Designer.cs">
+      <DependentUpon>frmPreferences.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmAddplayer.resx">
@@ -103,6 +109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPlaygame.resx">
       <DependentUpon>FrmPlaygame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPreferences.resx">
+      <DependentUpon>frmPreferences.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReport.resx">
       <DependentUpon>frmReport.cs</DependentUpon>
@@ -344,6 +353,7 @@
   <ItemGroup>
     <Content Include="cardbg.jpg" />
     <None Include="Resources\Background_Red.png" />
+    <None Include="Resources\1600x900-pastel-gray-solid-color-background.jpg" />
     <Content Include="Resources\cardbg.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
