@@ -3,12 +3,14 @@ using AwesomePokerGameSln.Code;
 using System;
 using System.Windows.Forms;
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace AwesomePokerGameSln {
   public partial class FrmTitle : Form {
     public FrmTitle() {
       InitializeComponent();
-    }
+      FrmPlaygame.change_background(Resources.ResourceManager.GetObject("Background_Red") as Bitmap); // Gabrielle: Automatically makes red bg 
+        }
 
     private void btnQuit_Click(object sender, EventArgs e) {
             Application.Exit();

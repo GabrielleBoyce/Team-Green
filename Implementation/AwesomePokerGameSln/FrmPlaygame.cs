@@ -22,7 +22,7 @@ namespace AwesomePokerGameSln {
         private bool dealerFolded = false;
         private Random rand = new Random();
         private Tuple<int, int>[] cards = new Tuple<int, int>[5];
-
+        private static Bitmap backgroundImage; // Gabrielle: the backgrounds 
 
         public FrmPlaygame() {
             InitializeComponent();
@@ -34,6 +34,8 @@ namespace AwesomePokerGameSln {
             for (int c = 1; c <= 5; c++) {
                 dealerCardPics[c - 1] = this.Controls.Find("pictureBox" + c.ToString(), true)[0] as PictureBox;
             }
+
+            this.pictureBox7.BackgroundImage = backgroundImage; // Gabrielle: setting the background
         }
 
         private void dealCards() {
@@ -344,6 +346,11 @@ namespace AwesomePokerGameSln {
                 turnBase();
             }
 
+        }
+
+        public static void change_background(Bitmap newimage) // Gabrielle: Changes the background image
+        {
+            backgroundImage = newimage;
         }
     }
 }
