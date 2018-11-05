@@ -74,6 +74,8 @@ namespace AwesomePokerGameSln {
         {
             Player.Instance.setName(name);
             Player.Instance.setMoney(money);
+            toolStripLabelDispName.Text = Player.Instance.getName();
+            toolStripLabelNamedisp.Text = "$"+Player.Instance.getMoney().ToString();
             frmSelectPlayer.Hide();
         }
     
