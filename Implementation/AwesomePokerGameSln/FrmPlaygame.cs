@@ -348,9 +348,22 @@ namespace AwesomePokerGameSln {
 
         }
 
+        private void button5_Click(object sender, EventArgs e) // Gabrielle: Call
+        {
+            if (round == 2)
+            {
+                // Gabrielle: Waiting on bet logic to be implemented for the dealer
+                round++;
+                turnBase();
+            }
+
+        }
+
         public static void change_background(Bitmap newimage) // Gabrielle: Changes the background image
         {
             backgroundImage = newimage;
         }
+
+
     }
 }
