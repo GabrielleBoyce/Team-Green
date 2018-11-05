@@ -19,26 +19,10 @@ namespace AwesomePokerGameSln.Code
         private Player()
         {
             name = "guest";
-            money = 500;
+            money = 513;
 
-            chips = new List<Chip>();
-            addChip(5);
-            addChip(10);
-            addChip(5);
-            addChip(10);
-            addChip(5);
-            addChip(10);
-            addChip(100);
-            addChip(25);
-            addChip(10);
-            addChip(100);
-            addChip(25);
-            addChip(10);
-            addChip(100);
-            addChip(25);
-            addChip(10);
-            addChip(100);
-            addChip(25);
+            // Josh: converts player's money to chips
+            convertMoneyToChips(money);
         }
 
         //get instance
@@ -179,6 +163,97 @@ namespace AwesomePokerGameSln.Code
                 }
             }
             chips = sortedList;
+        }
+
+        // Pass in the VALUE of the poker chip you want to convert and this method will:
+        // remove the higher valued one from the list
+        // add the appropriate amount of lesser valued chips
+        public void convertChip(int val)
+        {
+            // See if you can remove that chip
+            Boolean removed = false;
+            for(int i = 0; i < chips.Count; i++)
+            {
+                if(val == chips[i].getValue())
+                {
+                    chips.Remove(chips[i]);
+                    removed = true;
+                    break;
+                }
+            }
+
+            if (removed)
+            {
+                // Add the appropriate amount of lesser valued chips
+                if(val == 100)
+                {
+                    chips.Add(new Chip(25));
+                    chips.Add(new Chip(25));
+                    chips.Add(new Chip(25));
+                    chips.Add(new Chip(25));
+                }
+                else if(val == 25)
+                {
+                    chips.Add(new Chip(10));
+                    chips.Add(new Chip(10));
+                    chips.Add(new Chip(5));
+                }
+                else if(val == 10)
+                {
+                    chips.Add(new Chip(5));
+                    chips.Add(new Chip(5));
+                }
+                else if(val == 5)
+                {
+                    chips.Add(new Chip(1));
+                    chips.Add(new Chip(1));
+                    chips.Add(new Chip(1));
+                    chips.Add(new Chip(1));
+                    chips.Add(new Chip(1));
+                }
+                else
+                {
+                    Console.WriteLine("ERROR: Can not convert chip.");
+                }
+            }
+        }
+
+        // Gives the player the smallest number of chips based on their money
+        public void convertMoneyToChips(int money)
+        {
+            chips = new List<Chip>();
+            Boolean converting = true;
+            int valAttempt = 100;
+            while (converting)
+            {
+                if(money >= valAttempt){
+                    chips.Add(new Chip(valAttempt));
+                    money -= valAttempt;
+                }
+                else if(money > 0)
+                {
+                    if(valAttempt == 100)
+                    {
+                        valAttempt = 25;
+                    }
+                    else if(valAttempt == 25)
+                    {
+                        valAttempt = 10;
+                    }
+                    else if(valAttempt == 10)
+                    {
+                        valAttempt = 5;
+                    }
+                    else if(valAttempt == 5)
+                    {
+                        valAttempt = 1;
+                    }
+                }
+                else
+                {
+                    converting = false;
+                }
+            }
         }
     }
 }
