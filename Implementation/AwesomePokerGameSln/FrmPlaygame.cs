@@ -22,6 +22,8 @@ namespace AwesomePokerGameSln {
         private bool dealerFolded = false;
         private Random rand = new Random();
         private Tuple<int, int>[] cards = new Tuple<int, int>[5];
+        private Tuple<int, int>[] playerCards = new Tuple<int, int>[5]; // MadG: Saves the player's hand
+        //private Tuple<int, int>[] dealerCards = new Tuple<int, int>[5];
         private static Bitmap backgroundImage; // Gabrielle: the backgrounds 
         private int moneyPot = 0;
 
@@ -53,6 +55,8 @@ namespace AwesomePokerGameSln {
                cards[index++] = card;
                playerCardPic.BackgroundImage = CardImageHelper.cardToBitmap(card, playerHand.isHidden());
             }
+
+            playerCards = cards; // MadG: Saves the cards instance before reused for dealer
 
             cards = new CardType[5];
             index = 0;
@@ -198,7 +202,7 @@ namespace AwesomePokerGameSln {
         private void winLose()
         {
             // MadG: Logic for winning, losing, drawing
-            if (playerHand.getHandScore() > dealerHand.getHandScore() || playerFolded)
+            if (playerHand.getHandScore() > dealerHand.getHandScore())
             {
                 lblWinLose.Text = "LOSE...";
             }
@@ -206,10 +210,20 @@ namespace AwesomePokerGameSln {
             {
                 lblWinLose.Text = "DRAW!";
             }
-            else if (playerHand.getHandScore() < dealerHand.getHandScore() || dealerFolded)
+            else if (playerHand.getHandScore() < dealerHand.getHandScore())
             {
                 lblWinLose.Text = "WIN!";
             }
+
+            if (dealerFolded)
+            {
+                lblWinLose.Text = "WIN!";
+            }
+            if (playerFolded)
+            {
+                lblWinLose.Text = "FOLDED";
+            }
+
             lblWinLose.Visible = true;
         }
 
@@ -257,7 +271,8 @@ namespace AwesomePokerGameSln {
                 //Discard cards and redraw
                 round++;
                 turnBase();
-
+                
+                cards = new Tuple<int, int>[5];
                 if (picHilight1.Visible)
                 {
                     picHilight1.Visible = !picHilight1.Visible;
@@ -265,6 +280,11 @@ namespace AwesomePokerGameSln {
                     cards[0] = card;
                     picCard1.BackgroundImage = CardImageHelper.cardToBitmap(card, playerHand.isHidden());
                 }
+                else
+                {
+                    cards[0] = playerCards[0];
+                }
+
                 if (picHilight2.Visible)
                 {
                     picHilight2.Visible = !picHilight2.Visible;
@@ -272,6 +292,11 @@ namespace AwesomePokerGameSln {
                     cards[1] = card;
                     picCard2.BackgroundImage = CardImageHelper.cardToBitmap(card, playerHand.isHidden());
                 }
+                else
+                {
+                    cards[1] = playerCards[1];
+                }
+
                 if (picHilight3.Visible)
                 {
                     picHilight3.Visible = !picHilight3.Visible;
@@ -279,6 +304,11 @@ namespace AwesomePokerGameSln {
                     cards[2] = card;
                     picCard3.BackgroundImage = CardImageHelper.cardToBitmap(card, playerHand.isHidden());
                 }
+                else
+                {
+                    cards[2] = playerCards[2];
+                }
+
                 if (picHilight4.Visible)
                 {
                     picHilight4.Visible = !picHilight4.Visible;
@@ -286,6 +316,11 @@ namespace AwesomePokerGameSln {
                     cards[3] = card;
                     picCard4.BackgroundImage = CardImageHelper.cardToBitmap(card, playerHand.isHidden());
                 }
+                else
+                {
+                    cards[3] = playerCards[3];
+                }
+
                 if (picHilight5.Visible)
                 {
                     picHilight5.Visible = !picHilight5.Visible;
@@ -293,12 +328,15 @@ namespace AwesomePokerGameSln {
                     cards[4] = card;
                     picCard5.BackgroundImage = CardImageHelper.cardToBitmap(card, playerHand.isHidden());
                 }
-                
-                //playerHand = new Hand(cards)
+                else
+                {
+                    cards[4] = playerCards[4];
+                }
+
+                playerHand = new Hand(cards);
                 lblHandType.Text = playerHand.getHandType().ToString();
 
                 dealerThoughts();
-                //prizePool.Text = "Prize Pool: " + moneyPot;
             }
         }
 
@@ -349,11 +387,11 @@ namespace AwesomePokerGameSln {
             viewRules.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e) // Bet
+        private void button2_Click(object sender, EventArgs e) // Raise
         {
             if (round == 0 || round == 2)
             {
-                // Bet money
+                // Raise money
                 round++;
                 turnBase();
             }
