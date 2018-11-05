@@ -56,6 +56,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.dealFold = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
+            this.prizePool = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -78,10 +79,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(48, 400);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Location = new System.Drawing.Point(36, 325);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(239, 106);
+            this.button1.Size = new System.Drawing.Size(179, 86);
             this.button1.TabIndex = 6;
             this.button1.Text = "Redeal";
             this.button1.UseVisualStyleBackColor = true;
@@ -91,10 +91,9 @@
             // 
             this.lblHandType.AutoSize = true;
             this.lblHandType.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHandType.Location = new System.Drawing.Point(535, 400);
-            this.lblHandType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblHandType.Location = new System.Drawing.Point(467, 325);
             this.lblHandType.Name = "lblHandType";
-            this.lblHandType.Size = new System.Drawing.Size(170, 42);
+            this.lblHandType.Size = new System.Drawing.Size(135, 33);
             this.lblHandType.TabIndex = 7;
             this.lblHandType.Text = "dealFold";
             // 
@@ -102,10 +101,9 @@
             // 
             this.lblWinLose.AutoSize = true;
             this.lblWinLose.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWinLose.Location = new System.Drawing.Point(535, 487);
-            this.lblWinLose.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblWinLose.Location = new System.Drawing.Point(467, 397);
             this.lblWinLose.Name = "lblWinLose";
-            this.lblWinLose.Size = new System.Drawing.Size(161, 42);
+            this.lblWinLose.Size = new System.Drawing.Size(129, 33);
             this.lblWinLose.TabIndex = 7;
             this.lblWinLose.Text = "win/lose";
             this.lblWinLose.Visible = false;
@@ -118,7 +116,7 @@
             this.toolStripDropDownButton2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1172, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(879, 25);
             this.toolStrip1.TabIndex = 13;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -130,13 +128,13 @@
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(75, 24);
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(62, 22);
             this.toolStripDropDownButton1.Text = "Options";
             // 
             // sendAReportToolStripMenuItem
             // 
             this.sendAReportToolStripMenuItem.Name = "sendAReportToolStripMenuItem";
-            this.sendAReportToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.sendAReportToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.sendAReportToolStripMenuItem.Text = "Send A Report";
             this.sendAReportToolStripMenuItem.Click += new System.EventHandler(this.sendAReportToolStripMenuItem_Click);
             // 
@@ -149,20 +147,20 @@
             this.toolStripDropDownButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton2.Image")));
             this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
-            this.toolStripDropDownButton2.Size = new System.Drawing.Size(55, 24);
+            this.toolStripDropDownButton2.Size = new System.Drawing.Size(45, 22);
             this.toolStripDropDownButton2.Text = "Help";
             // 
             // gamblingAddictionToolStripMenuItem
             // 
             this.gamblingAddictionToolStripMenuItem.Name = "gamblingAddictionToolStripMenuItem";
-            this.gamblingAddictionToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
+            this.gamblingAddictionToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.gamblingAddictionToolStripMenuItem.Text = "Gambling Addiction?";
             this.gamblingAddictionToolStripMenuItem.Click += new System.EventHandler(this.gamblingAddictionToolStripMenuItem_Click);
             // 
             // rulesToolStripMenuItem
             // 
             this.rulesToolStripMenuItem.Name = "rulesToolStripMenuItem";
-            this.rulesToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
+            this.rulesToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.rulesToolStripMenuItem.Text = "View Rules";
             this.rulesToolStripMenuItem.Click += new System.EventHandler(this.rulesToolStripMenuItem_Click);
             // 
@@ -170,10 +168,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(880, 400);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(660, 325);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(146, 42);
+            this.label1.Size = new System.Drawing.Size(117, 33);
             this.label1.TabIndex = 14;
             this.label1.Text = "money:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -181,40 +178,36 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(281, 42);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(211, 34);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(149, 148);
+            this.pictureBox1.Size = new System.Drawing.Size(112, 120);
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
             // 
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(825, 42);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Location = new System.Drawing.Point(619, 34);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(149, 148);
+            this.pictureBox2.Size = new System.Drawing.Size(112, 120);
             this.pictureBox2.TabIndex = 11;
             this.pictureBox2.TabStop = false;
             // 
             // pictureBox3
             // 
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(640, 42);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Location = new System.Drawing.Point(480, 34);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(149, 148);
+            this.pictureBox3.Size = new System.Drawing.Size(112, 120);
             this.pictureBox3.TabIndex = 10;
             this.pictureBox3.TabStop = false;
             // 
             // pictureBox4
             // 
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox4.Location = new System.Drawing.Point(460, 42);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox4.Location = new System.Drawing.Point(345, 34);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(149, 148);
+            this.pictureBox4.Size = new System.Drawing.Size(112, 120);
             this.pictureBox4.TabIndex = 9;
             this.pictureBox4.TabStop = false;
             this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
@@ -222,20 +215,18 @@
             // pictureBox5
             // 
             this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox5.Location = new System.Drawing.Point(101, 42);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox5.Location = new System.Drawing.Point(76, 34);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(149, 148);
+            this.pictureBox5.Size = new System.Drawing.Size(112, 120);
             this.pictureBox5.TabIndex = 8;
             this.pictureBox5.TabStop = false;
             // 
             // picCard2
             // 
             this.picCard2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picCard2.Location = new System.Drawing.Point(281, 225);
-            this.picCard2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picCard2.Location = new System.Drawing.Point(211, 183);
             this.picCard2.Name = "picCard2";
-            this.picCard2.Size = new System.Drawing.Size(149, 148);
+            this.picCard2.Size = new System.Drawing.Size(112, 120);
             this.picCard2.TabIndex = 4;
             this.picCard2.TabStop = false;
             this.picCard2.Click += new System.EventHandler(this.picCard2_Click);
@@ -243,10 +234,9 @@
             // picCard5
             // 
             this.picCard5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picCard5.Location = new System.Drawing.Point(825, 225);
-            this.picCard5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picCard5.Location = new System.Drawing.Point(619, 183);
             this.picCard5.Name = "picCard5";
-            this.picCard5.Size = new System.Drawing.Size(149, 148);
+            this.picCard5.Size = new System.Drawing.Size(112, 120);
             this.picCard5.TabIndex = 3;
             this.picCard5.TabStop = false;
             this.picCard5.Click += new System.EventHandler(this.picCard5_Click);
@@ -254,10 +244,9 @@
             // picCard4
             // 
             this.picCard4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picCard4.Location = new System.Drawing.Point(640, 225);
-            this.picCard4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picCard4.Location = new System.Drawing.Point(480, 183);
             this.picCard4.Name = "picCard4";
-            this.picCard4.Size = new System.Drawing.Size(149, 148);
+            this.picCard4.Size = new System.Drawing.Size(112, 120);
             this.picCard4.TabIndex = 2;
             this.picCard4.TabStop = false;
             this.picCard4.Click += new System.EventHandler(this.picCard4_Click);
@@ -265,10 +254,9 @@
             // picCard3
             // 
             this.picCard3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picCard3.Location = new System.Drawing.Point(460, 225);
-            this.picCard3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picCard3.Location = new System.Drawing.Point(345, 183);
             this.picCard3.Name = "picCard3";
-            this.picCard3.Size = new System.Drawing.Size(149, 148);
+            this.picCard3.Size = new System.Drawing.Size(112, 120);
             this.picCard3.TabIndex = 1;
             this.picCard3.TabStop = false;
             this.picCard3.Click += new System.EventHandler(this.picCard3_Click);
@@ -276,10 +264,9 @@
             // picCard1
             // 
             this.picCard1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picCard1.Location = new System.Drawing.Point(101, 225);
-            this.picCard1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picCard1.Location = new System.Drawing.Point(76, 183);
             this.picCard1.Name = "picCard1";
-            this.picCard1.Size = new System.Drawing.Size(149, 148);
+            this.picCard1.Size = new System.Drawing.Size(112, 120);
             this.picCard1.TabIndex = 0;
             this.picCard1.TabStop = false;
             this.picCard1.Click += new System.EventHandler(this.picCard1_Click);
@@ -287,19 +274,17 @@
             // pictureBox6
             // 
             this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox6.Location = new System.Drawing.Point(981, 500);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox6.Location = new System.Drawing.Point(736, 406);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(155, 85);
+            this.pictureBox6.Size = new System.Drawing.Size(116, 69);
             this.pictureBox6.TabIndex = 15;
             this.pictureBox6.TabStop = false;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(48, 571);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Location = new System.Drawing.Point(36, 464);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(104, 45);
+            this.button3.Size = new System.Drawing.Size(78, 37);
             this.button3.TabIndex = 16;
             this.button3.Text = "Discard";
             this.button3.UseVisualStyleBackColor = true;
@@ -309,10 +294,10 @@
             // 
             this.picHilight1.BackColor = System.Drawing.Color.Yellow;
             this.picHilight1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picHilight1.Location = new System.Drawing.Point(92, 214);
+            this.picHilight1.Location = new System.Drawing.Point(69, 174);
             this.picHilight1.Margin = new System.Windows.Forms.Padding(0);
             this.picHilight1.Name = "picHilight1";
-            this.picHilight1.Size = new System.Drawing.Size(168, 170);
+            this.picHilight1.Size = new System.Drawing.Size(126, 138);
             this.picHilight1.TabIndex = 17;
             this.picHilight1.TabStop = false;
             this.picHilight1.Visible = false;
@@ -321,10 +306,9 @@
             // 
             this.picHilight2.BackColor = System.Drawing.Color.Yellow;
             this.picHilight2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picHilight2.Location = new System.Drawing.Point(272, 214);
-            this.picHilight2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picHilight2.Location = new System.Drawing.Point(204, 174);
             this.picHilight2.Name = "picHilight2";
-            this.picHilight2.Size = new System.Drawing.Size(168, 170);
+            this.picHilight2.Size = new System.Drawing.Size(126, 138);
             this.picHilight2.TabIndex = 18;
             this.picHilight2.TabStop = false;
             this.picHilight2.Visible = false;
@@ -333,10 +317,9 @@
             // 
             this.picHilight3.BackColor = System.Drawing.Color.Yellow;
             this.picHilight3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picHilight3.Location = new System.Drawing.Point(451, 214);
-            this.picHilight3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picHilight3.Location = new System.Drawing.Point(338, 174);
             this.picHilight3.Name = "picHilight3";
-            this.picHilight3.Size = new System.Drawing.Size(168, 170);
+            this.picHilight3.Size = new System.Drawing.Size(126, 138);
             this.picHilight3.TabIndex = 19;
             this.picHilight3.TabStop = false;
             this.picHilight3.Visible = false;
@@ -345,10 +328,9 @@
             // 
             this.picHilight4.BackColor = System.Drawing.Color.Yellow;
             this.picHilight4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picHilight4.Location = new System.Drawing.Point(631, 214);
-            this.picHilight4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picHilight4.Location = new System.Drawing.Point(473, 174);
             this.picHilight4.Name = "picHilight4";
-            this.picHilight4.Size = new System.Drawing.Size(168, 170);
+            this.picHilight4.Size = new System.Drawing.Size(126, 138);
             this.picHilight4.TabIndex = 20;
             this.picHilight4.TabStop = false;
             this.picHilight4.Visible = false;
@@ -357,10 +339,9 @@
             // 
             this.picHilight5.BackColor = System.Drawing.Color.Yellow;
             this.picHilight5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picHilight5.Location = new System.Drawing.Point(816, 214);
-            this.picHilight5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picHilight5.Location = new System.Drawing.Point(612, 174);
             this.picHilight5.Name = "picHilight5";
-            this.picHilight5.Size = new System.Drawing.Size(168, 170);
+            this.picHilight5.Size = new System.Drawing.Size(126, 138);
             this.picHilight5.TabIndex = 21;
             this.picHilight5.TabStop = false;
             this.picHilight5.Visible = false;
@@ -368,7 +349,7 @@
             // pictureBox7
             // 
             this.pictureBox7.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(2800, 1806);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -377,10 +358,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(48, 514);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Location = new System.Drawing.Point(36, 418);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(104, 50);
+            this.button2.Size = new System.Drawing.Size(78, 41);
             this.button2.TabIndex = 23;
             this.button2.Text = "Bet";
             this.button2.UseVisualStyleBackColor = true;
@@ -388,10 +368,9 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(180, 514);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button4.Location = new System.Drawing.Point(135, 418);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(107, 50);
+            this.button4.Size = new System.Drawing.Size(80, 41);
             this.button4.TabIndex = 24;
             this.button4.Text = "Fold";
             this.button4.UseVisualStyleBackColor = true;
@@ -402,29 +381,40 @@
             this.dealFold.AutoSize = true;
             this.dealFold.BackColor = System.Drawing.Color.DimGray;
             this.dealFold.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dealFold.Location = new System.Drawing.Point(535, 574);
-            this.dealFold.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.dealFold.Location = new System.Drawing.Point(467, 468);
             this.dealFold.Name = "dealFold";
-            this.dealFold.Size = new System.Drawing.Size(266, 42);
+            this.dealFold.Size = new System.Drawing.Size(211, 33);
             this.dealFold.TabIndex = 25;
             this.dealFold.Text = "Dealer Folded";
             this.dealFold.Visible = false;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(180, 571);
+            this.button5.Location = new System.Drawing.Point(135, 464);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(107, 45);
+            this.button5.Size = new System.Drawing.Size(80, 37);
             this.button5.TabIndex = 26;
             this.button5.Text = "Call";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // prizePool
+            // 
+            this.prizePool.AutoSize = true;
+            this.prizePool.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prizePool.Location = new System.Drawing.Point(239, 468);
+            this.prizePool.Name = "prizePool";
+            this.prizePool.Size = new System.Drawing.Size(176, 33);
+            this.prizePool.TabIndex = 27;
+            this.prizePool.Text = "Prize Pool: ";
+            // 
             // FrmPlaygame
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1172, 646);
+            this.ClientSize = new System.Drawing.Size(879, 525);
+            this.Controls.Add(this.prizePool);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.dealFold);
             this.Controls.Add(this.button4);
@@ -452,7 +442,6 @@
             this.Controls.Add(this.picHilight4);
             this.Controls.Add(this.picHilight5);
             this.Controls.Add(this.pictureBox7);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmPlaygame";
             this.Text = "FrmPlaygame";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmPlaygame_FormClosed);
@@ -518,5 +507,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label dealFold;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label prizePool;
     }
 }

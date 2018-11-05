@@ -23,6 +23,7 @@ namespace AwesomePokerGameSln {
         private Random rand = new Random();
         private Tuple<int, int>[] cards = new Tuple<int, int>[5];
         private static Bitmap backgroundImage; // Gabrielle: the backgrounds 
+        private int moneyPot = 0;
 
         public FrmPlaygame() {
             InitializeComponent();
@@ -116,7 +117,18 @@ namespace AwesomePokerGameSln {
                 int choice = rand.Next(10);
                 if (choice < 9)
                 {
-                    // Dealer bets
+                    if (choice == 1 || choice == 2 || choice == 3)
+                    {
+                        moneyPot += 5;
+                    }
+                    else if (choice == 4 || choice == 5 || choice == 6)
+                    {
+                        moneyPot += 10;
+                    }
+                    else
+                    {
+                        moneyPot += 15;
+                    }
                 }
                 else
                 {
@@ -134,7 +146,18 @@ namespace AwesomePokerGameSln {
                 int choice = rand.Next(10);
                 if (choice < 9)
                 {
-                    // Dealer bets
+                    if (choice == 1 || choice == 2 || choice == 3)
+                    {
+                        moneyPot += 5;
+                    }
+                    else if (choice == 4 || choice == 5 || choice == 6)
+                    {
+                        moneyPot += 10;
+                    }
+                    else
+                    {
+                        moneyPot += 15;
+                    }
                 }
                 else
                 {
@@ -143,7 +166,7 @@ namespace AwesomePokerGameSln {
                     turnBase();
                 }
             }
-
+            prizePool.Text = "Prize Pool: " + moneyPot;
         }
         // MadG: Keeps up with turns
         private void turnBase()
@@ -160,7 +183,7 @@ namespace AwesomePokerGameSln {
                         //Discard/Redraw
                         dealerThoughts();
                         break;
-                    case 2:
+                    case 3:
                         //Place bets
                         dealerThoughts();
                         break;
@@ -200,6 +223,7 @@ namespace AwesomePokerGameSln {
       playerFolded = false;
       dealerFolded = false;
       dealFold.Visible = false;
+      moneyPot = 0;
       dealCards();
     }
 
@@ -269,9 +293,12 @@ namespace AwesomePokerGameSln {
                     cards[4] = card;
                     picCard5.BackgroundImage = CardImageHelper.cardToBitmap(card, playerHand.isHidden());
                 }
-
-                //playerHand = new Hand(cards);
+                
+                //playerHand = new Hand(cards)
                 lblHandType.Text = playerHand.getHandType().ToString();
+
+                dealerThoughts();
+                //prizePool.Text = "Prize Pool: " + moneyPot;
             }
         }
 
