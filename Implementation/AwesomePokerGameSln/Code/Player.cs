@@ -255,5 +255,11 @@ namespace AwesomePokerGameSln.Code
                 }
             }
         }
+
+        public void takeMoney(int moneyToTake) // Gabrielle: Updating money after a call
+        {
+            money = (money - moneyToTake);
+            convertMoneyToChips(money);
+        }
     }
 }

@@ -24,6 +24,7 @@ namespace AwesomePokerGameSln {
         private Tuple<int, int>[] cards = new Tuple<int, int>[5];
         private static Bitmap backgroundImage; // Gabrielle: the backgrounds 
         private int moneyPot = 0;
+        private int dealerLastBet = 0;
 
         public FrmPlaygame() {
             InitializeComponent();
@@ -71,9 +72,10 @@ namespace AwesomePokerGameSln {
 
             turnBase();
 
-            label1.Text = "Money: " + Player.Instance.getTotalMoney(); // Josh: show player's total money
-            Player.Instance.sortMoney();
-            pictureBox6.Image = drawMoney();
+            //label1.Text = "Money: " + Player.Instance.getTotalMoney(); // Josh: show player's total money
+            // Player.Instance.sortMoney();
+            //pictureBox6.Image = drawMoney();
+            updateMoney(); // Gabrielle: Moved above lines to method since this will be used a lot 
         }
 
         // Used to show all the player's poker chips
@@ -120,14 +122,17 @@ namespace AwesomePokerGameSln {
                     if (choice == 1 || choice == 2 || choice == 3)
                     {
                         moneyPot += 5;
+                        dealerLastBet = 5;
                     }
                     else if (choice == 4 || choice == 5 || choice == 6)
                     {
                         moneyPot += 10;
+                        dealerLastBet = 10;
                     }
                     else
                     {
                         moneyPot += 15;
+                        dealerLastBet = 15;
                     }
                 }
                 else
@@ -149,14 +154,17 @@ namespace AwesomePokerGameSln {
                     if (choice == 1 || choice == 2 || choice == 3)
                     {
                         moneyPot += 5;
+                        dealerLastBet = 5;
                     }
                     else if (choice == 4 || choice == 5 || choice == 6)
                     {
                         moneyPot += 10;
+                        dealerLastBet = 10;
                     }
                     else
                     {
                         moneyPot += 15;
+                        dealerLastBet = 15;
                     }
                 }
                 else
@@ -165,6 +173,9 @@ namespace AwesomePokerGameSln {
                     dealFold.Visible = true;
                     turnBase();
                 }
+            }
+            else if(round == 3){ //  Gabrielle: Added this cuz the game wouldn't end at the third round
+                winLose();
             }
             prizePool.Text = "Prize Pool: " + moneyPot;
         }
@@ -377,11 +388,27 @@ namespace AwesomePokerGameSln {
 
         private void button5_Click(object sender, EventArgs e) // Gabrielle: Call
         {
+            if(round == 0)
+            {
+                Player.Instance.takeMoney(moneyPot);
+                updateMoney();
+                moneyPot = moneyPot + moneyPot;
+                prizePool.Text = "Prize Pool: " + moneyPot;
+                round++;
+                turnBase();
+            }
             if (round == 2)
             {
                 // Gabrielle: Waiting on bet logic to be implemented for the dealer
+                Player.Instance.takeMoney(dealerLastBet);
+                updateMoney();
+                moneyPot = moneyPot + dealerLastBet;
+                prizePool.Text = "Prize Pool: " + moneyPot;
+
                 round++;
                 turnBase();
+
+                
             }
 
         }
@@ -389,6 +416,13 @@ namespace AwesomePokerGameSln {
         public static void change_background(Bitmap newimage) // Gabrielle: Changes the background image
         {
             backgroundImage = newimage;
+        }
+
+        public void updateMoney()
+        {
+            label1.Text = "Money: " + Player.Instance.getTotalMoney(); // Josh: show player's total money
+            Player.Instance.sortMoney();
+            pictureBox6.Image = drawMoney();
         }
 
 
