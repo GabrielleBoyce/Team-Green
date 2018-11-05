@@ -25,7 +25,7 @@ namespace AwesomePokerGameSln.Code {
     private Boolean hidden; // Josh: used to determine when to hide cards
 
     public Hand(Tuple<int, int>[] cards) {
-      this.cards = cards;
+            this.cards = cards;
     }
 
     public void setHidden(Boolean b)

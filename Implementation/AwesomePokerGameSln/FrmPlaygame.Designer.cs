@@ -91,7 +91,7 @@
             // 
             this.lblHandType.AutoSize = true;
             this.lblHandType.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHandType.Location = new System.Drawing.Point(467, 325);
+            this.lblHandType.Location = new System.Drawing.Point(380, 325);
             this.lblHandType.Name = "lblHandType";
             this.lblHandType.Size = new System.Drawing.Size(135, 33);
             this.lblHandType.TabIndex = 7;
@@ -362,7 +362,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(78, 41);
             this.button2.TabIndex = 23;
-            this.button2.Text = "Bet";
+            this.button2.Text = "Raise";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
