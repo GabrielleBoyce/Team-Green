@@ -58,6 +58,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.prizePool = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();

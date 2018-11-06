@@ -19,7 +19,7 @@ namespace AwesomePokerGameSln.Code
         private Player()
         {
             name = "guest";
-            money = 513;
+            money = 500;
 
             // Josh: converts player's money to chips
             convertMoneyToChips(money);
