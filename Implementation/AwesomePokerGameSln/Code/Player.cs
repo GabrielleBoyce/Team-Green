@@ -261,5 +261,11 @@ namespace AwesomePokerGameSln.Code
             money = (money - moneyToTake);
             convertMoneyToChips(money);
         }
+
+        public void addMoney(int moneyToAdd) // MadG: adds money yo
+        {
+            money += moneyToAdd;
+            convertMoneyToChips(money);
+        }
     }
 }

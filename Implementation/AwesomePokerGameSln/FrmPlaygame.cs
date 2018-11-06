@@ -366,24 +366,33 @@ namespace AwesomePokerGameSln {
         private void winLose()
         {
             // MadG: Logic for winning, losing, drawing
-            if (playerHand.getHandScore() > dealerHand.getHandScore())
+            if (!dealerFolded && !playerFolded)
             {
-                lblWinLose.Text = "LOSE...";
+                if (playerHand.getHandScore() > dealerHand.getHandScore())
+                {
+                    lblWinLose.Text = "LOSE...";
+                }
+                else if (playerHand.getHandScore() == dealerHand.getHandScore())
+                {
+                    lblWinLose.Text = "DRAW!";
+                    Player.Instance.addMoney(moneyPot / 2); // MadG: Drawing splits the pot, though I'm pretty sure that's not how it is normally
+                    updateMoney();
+                }
+                else if (playerHand.getHandScore() < dealerHand.getHandScore())
+                {
+                    lblWinLose.Text = "WIN!";
+                    Player.Instance.addMoney(moneyPot);
+                    updateMoney();
+                }
             }
-            else if (playerHand.getHandScore() == dealerHand.getHandScore())
+            else if (dealerFolded)
             {
-                lblWinLose.Text = "DRAW!";
-            }
-            else if (playerHand.getHandScore() < dealerHand.getHandScore())
-            {
+                //Player.Instance.setMoney(Player.Instance.getMoney() + moneyPot);
+                Player.Instance.addMoney(moneyPot);
+                updateMoney();
                 lblWinLose.Text = "WIN!";
             }
-
-            if (dealerFolded)
-            {
-                lblWinLose.Text = "WIN!";
-            }
-            if (playerFolded)
+            else if (playerFolded)
             {
                 lblWinLose.Text = "FOLDED";
             }
@@ -500,6 +509,10 @@ namespace AwesomePokerGameSln {
                 // Raise money
                 round++;
                 turnBase();
+                moneyPot += dealerLastBet + 5;
+                prizePool.Text = "Prize Pool: " + moneyPot;
+                Player.Instance.takeMoney(dealerLastBet + 5);
+                updateMoney();
             }
             if (round == 3)
             {
