@@ -57,8 +57,8 @@
             this.dealFold = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.prizePool = new System.Windows.Forms.Label();
+            this.lblDealerHand = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -94,9 +94,9 @@
             this.lblHandType.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHandType.Location = new System.Drawing.Point(380, 325);
             this.lblHandType.Name = "lblHandType";
-            this.lblHandType.Size = new System.Drawing.Size(135, 33);
+            this.lblHandType.Size = new System.Drawing.Size(243, 33);
             this.lblHandType.TabIndex = 7;
-            this.lblHandType.Text = "dealFold";
+            this.lblHandType.Text = "playerHandType";
             // 
             // lblWinLose
             // 
@@ -117,7 +117,7 @@
             this.toolStripDropDownButton2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(879, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1149, 25);
             this.toolStrip1.TabIndex = 13;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -410,11 +410,23 @@
             this.prizePool.TabIndex = 27;
             this.prizePool.Text = "Prize Pool: ";
             // 
+            // lblDealerHand
+            // 
+            this.lblDealerHand.AutoSize = true;
+            this.lblDealerHand.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDealerHand.Location = new System.Drawing.Point(788, 70);
+            this.lblDealerHand.Name = "lblDealerHand";
+            this.lblDealerHand.Size = new System.Drawing.Size(244, 33);
+            this.lblDealerHand.TabIndex = 28;
+            this.lblDealerHand.Text = "dealerHandType";
+            this.lblDealerHand.Visible = false;
+            // 
             // FrmPlaygame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(879, 525);
+            this.ClientSize = new System.Drawing.Size(1149, 525);
+            this.Controls.Add(this.lblDealerHand);
             this.Controls.Add(this.prizePool);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.dealFold);
@@ -445,6 +457,7 @@
             this.Controls.Add(this.pictureBox7);
             this.Name = "FrmPlaygame";
             this.Text = "FrmPlaygame";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmPlaygame_FormClosed);
             this.Load += new System.EventHandler(this.FrmPlaygame_Load);
             this.toolStrip1.ResumeLayout(false);
@@ -509,5 +522,6 @@
         private System.Windows.Forms.Label dealFold;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label prizePool;
+        private System.Windows.Forms.Label lblDealerHand;
     }
 }

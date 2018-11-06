@@ -20,10 +20,12 @@ namespace AwesomePokerGameSln {
         private int round = 0;
         private bool playerFolded = false;
         private bool dealerFolded = false;
+        private bool dealerDiscard = false; // MadG: Tells when the dealer is discarding
+        private bool[] willDiscard = new bool[5];
         private Random rand = new Random();
         private Tuple<int, int>[] cards = new Tuple<int, int>[5];
         private Tuple<int, int>[] playerCards = new Tuple<int, int>[5]; // MadG: Saves the player's hand
-        //private Tuple<int, int>[] dealerCards = new Tuple<int, int>[5];
+        private Tuple<int, int>[] dealerCards = new Tuple<int, int>[5]; // MadG: Saves the dealer's hand
         private static Bitmap backgroundImage; // Gabrielle: the backgrounds 
         private int moneyPot = 0;
         private int dealerLastBet = 0;
@@ -73,6 +75,8 @@ namespace AwesomePokerGameSln {
                 dealerCardPic.BackgroundImage = CardImageHelper.cardToBitmap(card, dealerHand.isHidden());
             }
             lblHandType.Text = playerHand.getHandType().ToString();
+            lblDealerHand.Text = dealerHand.getHandType().ToString();
+            dealerCards = cards;
 
             turnBase();
 
@@ -149,6 +153,21 @@ namespace AwesomePokerGameSln {
             else if (round == 1)
             {
                 //Have dealer select cards to discard randomly
+                for(int i = 0; i < 5; i++)
+                {
+                    dealerDiscard = true;
+                    int d = rand.Next(4); // MadG: less chance of discarding
+                    if (d < 3)
+                    {
+                        willDiscard[i] = false;
+                    }
+                    else
+                    {
+                        willDiscard[i] = true;
+                    }
+
+                    discard(dealerHand);
+                }
             }
             else if (round == 2)
             {
@@ -183,7 +202,7 @@ namespace AwesomePokerGameSln {
             }
             prizePool.Text = "Prize Pool: " + moneyPot;
         }
-        // MadG: Keeps up with turns
+        // MadG: Keeps up with turns (maybe can remove?)
         private void turnBase()
         {
             if (!playerFolded && !dealerFolded)
@@ -207,6 +226,140 @@ namespace AwesomePokerGameSln {
             else
             {
                 winLose();
+            }
+        }
+
+        // MadG: Moved discard logic to its own method
+        private void discard(Hand x)
+        {
+            cards = new Tuple<int, int>[5];
+            if (!dealerDiscard)
+            {
+                if (picHilight1.Visible)
+                {
+                    picHilight1.Visible = !picHilight1.Visible;
+                    CardType card = deck.nextCard();
+                    cards[0] = card;
+                    picCard1.BackgroundImage = CardImageHelper.cardToBitmap(card, x.isHidden());
+                }
+                else
+                {
+                    cards[0] = playerCards[0];
+                }
+
+                if (picHilight2.Visible)
+                {
+                    picHilight2.Visible = !picHilight2.Visible;
+                    CardType card = deck.nextCard();
+                    cards[1] = card;
+                    picCard2.BackgroundImage = CardImageHelper.cardToBitmap(card, x.isHidden());
+                }
+                else
+                {
+                    cards[1] = playerCards[1];
+                }
+
+                if (picHilight3.Visible)
+                {
+                    picHilight3.Visible = !picHilight3.Visible;
+                    CardType card = deck.nextCard();
+                    cards[2] = card;
+                    picCard3.BackgroundImage = CardImageHelper.cardToBitmap(card, x.isHidden());
+                }
+                else
+                {
+                    cards[2] = playerCards[2];
+                }
+
+                if (picHilight4.Visible)
+                {
+                    picHilight4.Visible = !picHilight4.Visible;
+                    CardType card = deck.nextCard();
+                    cards[3] = card;
+                    picCard4.BackgroundImage = CardImageHelper.cardToBitmap(card, x.isHidden());
+                }
+                else
+                {
+                    cards[3] = playerCards[3];
+                }
+
+                if (picHilight5.Visible)
+                {
+                    picHilight5.Visible = !picHilight5.Visible;
+                    CardType card = deck.nextCard();
+                    cards[4] = card;
+                    picCard5.BackgroundImage = CardImageHelper.cardToBitmap(card, x.isHidden());
+                }
+                else
+                {
+                    cards[4] = playerCards[4];
+                }
+
+                x = new Hand(cards);
+                playerHand = x;
+                lblHandType.Text = x.getHandType().ToString();
+            }
+            else
+            {
+                if (willDiscard[0])
+                {
+                    CardType card = deck.nextCard();
+                    cards[0] = card;
+                    pictureBox1.BackgroundImage = CardImageHelper.cardToBitmap(card, x.isHidden());
+                }
+                else
+                {
+                    cards[0] = dealerCards[0];
+                }
+
+                if (willDiscard[1])
+                {
+                    CardType card = deck.nextCard();
+                    cards[1] = card;
+                    pictureBox2.BackgroundImage = CardImageHelper.cardToBitmap(card, x.isHidden());
+                }
+                else
+                {
+                    cards[1] = dealerCards[1];
+                }
+
+                if (willDiscard[2])
+                {
+                    CardType card = deck.nextCard();
+                    cards[2] = card;
+                    pictureBox3.BackgroundImage = CardImageHelper.cardToBitmap(card, x.isHidden());
+                }
+                else
+                {
+                    cards[2] = dealerCards[2];
+                }
+
+                if (willDiscard[3])
+                {
+                    CardType card = deck.nextCard();
+                    cards[3] = card;
+                    pictureBox4.BackgroundImage = CardImageHelper.cardToBitmap(card, x.isHidden());
+                }
+                else
+                {
+                    cards[3] = dealerCards[3];
+                }
+
+                if (willDiscard[4])
+                {
+                    CardType card = deck.nextCard();
+                    cards[4] = card;
+                    pictureBox5.BackgroundImage = CardImageHelper.cardToBitmap(card, x.isHidden());
+                }
+                else
+                {
+                    cards[4] = dealerCards[4];
+                }
+
+                x = new Hand(cards);
+                dealerHand = x;
+                lblDealerHand.Text = x.getHandType().ToString();
+                dealerDiscard = false;
             }
         }
 
@@ -236,19 +389,24 @@ namespace AwesomePokerGameSln {
             }
 
             lblWinLose.Visible = true;
+            lblDealerHand.Visible = true;
         }
 
         private void FrmPlaygame_Load(object sender, EventArgs e) {
       deck = new Deck();
       dealCards();
     }
-
+    
+    //Resets everything
     private void button1_Click(object sender, EventArgs e) { // Redeal
       lblWinLose.Visible = false;
+      lblDealerHand.Visible = false;
       playerFolded = false;
       dealerFolded = false;
       dealFold.Visible = false;
       moneyPot = 0;
+      willDiscard = new bool[5];
+      dealerDiscard = false;
       dealCards();
     }
 
@@ -282,70 +440,7 @@ namespace AwesomePokerGameSln {
                 //Discard cards and redraw
                 round++;
                 turnBase();
-                
-                cards = new Tuple<int, int>[5];
-                if (picHilight1.Visible)
-                {
-                    picHilight1.Visible = !picHilight1.Visible;
-                    CardType card = deck.nextCard();
-                    cards[0] = card;
-                    picCard1.BackgroundImage = CardImageHelper.cardToBitmap(card, playerHand.isHidden());
-                }
-                else
-                {
-                    cards[0] = playerCards[0];
-                }
-
-                if (picHilight2.Visible)
-                {
-                    picHilight2.Visible = !picHilight2.Visible;
-                    CardType card = deck.nextCard();
-                    cards[1] = card;
-                    picCard2.BackgroundImage = CardImageHelper.cardToBitmap(card, playerHand.isHidden());
-                }
-                else
-                {
-                    cards[1] = playerCards[1];
-                }
-
-                if (picHilight3.Visible)
-                {
-                    picHilight3.Visible = !picHilight3.Visible;
-                    CardType card = deck.nextCard();
-                    cards[2] = card;
-                    picCard3.BackgroundImage = CardImageHelper.cardToBitmap(card, playerHand.isHidden());
-                }
-                else
-                {
-                    cards[2] = playerCards[2];
-                }
-
-                if (picHilight4.Visible)
-                {
-                    picHilight4.Visible = !picHilight4.Visible;
-                    CardType card = deck.nextCard();
-                    cards[3] = card;
-                    picCard4.BackgroundImage = CardImageHelper.cardToBitmap(card, playerHand.isHidden());
-                }
-                else
-                {
-                    cards[3] = playerCards[3];
-                }
-
-                if (picHilight5.Visible)
-                {
-                    picHilight5.Visible = !picHilight5.Visible;
-                    CardType card = deck.nextCard();
-                    cards[4] = card;
-                    picCard5.BackgroundImage = CardImageHelper.cardToBitmap(card, playerHand.isHidden());
-                }
-                else
-                {
-                    cards[4] = playerCards[4];
-                }
-
-                playerHand = new Hand(cards);
-                lblHandType.Text = playerHand.getHandType().ToString();
+                discard(playerHand);
 
                 dealerThoughts();
             }

@@ -99,7 +99,7 @@
             this.btnQuit.UseVisualStyleBackColor = false;
             this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
             // 
-            // label2
+            // lblDealerHand
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
@@ -107,7 +107,7 @@
             this.label2.ForeColor = System.Drawing.Color.Yellow;
             this.label2.Location = new System.Drawing.Point(72, 425);
             this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label2.Name = "label2";
+            this.label2.Name = "lblDealerHand";
             this.label2.Size = new System.Drawing.Size(435, 153);
             this.label2.TabIndex = 4;
             this.label2.Text = "Game";
