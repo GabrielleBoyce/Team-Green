@@ -63,6 +63,18 @@
     <Compile Include="frmAddplayer.Designer.cs">
       <DependentUpon>frmAddplayer.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmIllegalChar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmIllegalChar.Designer.cs">
+      <DependentUpon>FrmIllegalChar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmNameTaken.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNameTaken.Designer.cs">
+      <DependentUpon>FrmNameTaken.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPlaygame.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +118,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGamblingAddiction.resx">
       <DependentUpon>frmGamblingAddiction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmIllegalChar.resx">
+      <DependentUpon>FrmIllegalChar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNameTaken.resx">
+      <DependentUpon>FrmNameTaken.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPlaygame.resx">
       <DependentUpon>FrmPlaygame.cs</DependentUpon>
