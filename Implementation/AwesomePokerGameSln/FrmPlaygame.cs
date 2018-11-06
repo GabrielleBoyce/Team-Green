@@ -50,30 +50,16 @@ namespace AwesomePokerGameSln {
             deck.shuffleDeck();
             //Tuple<int, int>[] cards = new Tuple<int, int>[5];
 
-            int index = 0;
             playerHand = new Hand(cards);
-            foreach (PictureBox playerCardPic in playerCardPics) {
-               CardType card = deck.nextCard();
-               //CardType card = new CardType(index, inde);
-               cards[index++] = card;
-               playerCardPic.BackgroundImage = CardImageHelper.cardToBitmap(card, playerHand.isHidden());
-            }
+            refreshCardPics("player");
 
             playerCards = cards; // MadG: Saves the cards instance before reused for dealer
 
             cards = new CardType[5];
-            index = 0;
             dealerHand = new Hand(cards);
+            dealerHand.setHidden(true); // Hide dealer cards
+            refreshCardPics("dealer");
 
-            // Josh: TEST hide dealer's cards
-            //dealerHand.setHidden(true);
-
-            foreach (PictureBox dealerCardPic in dealerCardPics) {
-                CardType card = deck.nextCard();
-                //CardType card = new CardType(index, inde);
-                cards[index++] = card;
-                dealerCardPic.BackgroundImage = CardImageHelper.cardToBitmap(card, dealerHand.isHidden());
-            }
             lblHandType.Text = playerHand.getHandType().ToString();
             lblDealerHand.Text = dealerHand.getHandType().ToString();
             dealerCards = cards;
@@ -84,6 +70,29 @@ namespace AwesomePokerGameSln {
             // Player.Instance.sortMoney();
             //pictureBox6.Image = drawMoney();
             updateMoney(); // Gabrielle: Moved above lines to method since this will be used a lot 
+        }
+
+        public void refreshCardPics(String p)
+        {
+            int index = 0;
+            if (p == "player")
+            {
+                foreach (PictureBox playerCardPic in playerCardPics)
+                {
+                    CardType card = deck.nextCard();
+                    cards[index++] = card;
+                    playerCardPic.BackgroundImage = CardImageHelper.cardToBitmap(card, playerHand.isHidden());
+                }
+            }
+            else if(p == "dealer")
+            {
+                foreach (PictureBox dealerCardPic in dealerCardPics)
+                {
+                    CardType card = deck.nextCard();
+                    cards[index++] = card;
+                    dealerCardPic.BackgroundImage = CardImageHelper.cardToBitmap(card, dealerHand.isHidden());
+                }
+            }
         }
 
         // Used to show all the player's poker chips
@@ -522,6 +531,8 @@ namespace AwesomePokerGameSln {
 
         private void button4_Click(object sender, EventArgs e) // Fold
         {
+            dealerHand.setHidden(false);
+            refreshCardPics("dealer");
             if (round == 0 || round == 2)
             {
                 // Fold and Lose
