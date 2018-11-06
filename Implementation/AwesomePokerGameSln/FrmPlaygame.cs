@@ -406,6 +406,9 @@ namespace AwesomePokerGameSln {
                 lblWinLose.Text = "FOLDED";
             }
 
+            dealerHand.setHidden(false);
+            refreshCardPics("dealer");
+
             lblWinLose.Visible = true;
             lblDealerHand.Visible = true;
         }
@@ -527,6 +530,9 @@ namespace AwesomePokerGameSln {
             {
                 winLose();
             }
+
+            dealerHand.setHidden(true);
+            refreshCardPics("dealer");
         }
 
         private void button4_Click(object sender, EventArgs e) // Fold
@@ -567,7 +573,8 @@ namespace AwesomePokerGameSln {
 
                 
             }
-
+            dealerHand.setHidden(true);
+            refreshCardPics("dealer");
         }
 
         public static void change_background(Bitmap newimage) // Gabrielle: Changes the background image
