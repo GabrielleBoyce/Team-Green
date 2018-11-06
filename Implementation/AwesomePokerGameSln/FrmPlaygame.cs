@@ -10,8 +10,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CardType = System.Tuple<int, int>;
 
-namespace AwesomePokerGameSln {
-    public partial class FrmPlaygame : Form {
+namespace AwesomePokerGameSln
+{
+    public partial class FrmPlaygame : Form
+    {
         private Deck deck;
         private PictureBox[] playerCardPics;
         private PictureBox[] dealerCardPics;
@@ -30,21 +32,25 @@ namespace AwesomePokerGameSln {
         private int moneyPot = 0;
         private int dealerLastBet = 0;
 
-        public FrmPlaygame() {
+        public FrmPlaygame()
+        {
             InitializeComponent();
             playerCardPics = new PictureBox[5];
-            for (int c = 1; c <= 5; c++) {
+            for (int c = 1; c <= 5; c++)
+            {
                 playerCardPics[c - 1] = this.Controls.Find("picCard" + c.ToString(), true)[0] as PictureBox;
             }
             dealerCardPics = new PictureBox[5];
-            for (int c = 1; c <= 5; c++) {
+            for (int c = 1; c <= 5; c++)
+            {
                 dealerCardPics[c - 1] = this.Controls.Find("pictureBox" + c.ToString(), true)[0] as PictureBox;
             }
 
             this.pictureBox7.BackgroundImage = backgroundImage; // Gabrielle: setting the background
         }
 
-        private void dealCards() {
+        private void dealCards()
+        {
             round = 0;
 
             deck.shuffleDeck();
@@ -84,7 +90,7 @@ namespace AwesomePokerGameSln {
                     playerCardPic.BackgroundImage = CardImageHelper.cardToBitmap(card);
                 }
             }
-            else if(p == "dealer")
+            else if (p == "dealer")
             {
                 foreach (PictureBox dealerCardPic in dealerCardPics)
                 {
@@ -105,14 +111,14 @@ namespace AwesomePokerGameSln {
 
             int xCount = 0;
             int yCount = 0;
-            foreach(Chip chip in Player.Instance.getChips())
+            foreach (Chip chip in Player.Instance.getChips())
             {
                 pen.Color = chip.getColor();
                 rect = new Rectangle(xCount * 15, yCount * 15, 10, 10);
                 myGraph.DrawRectangle(pen, rect);
 
                 xCount++;
-                if(xCount == 6)
+                if (xCount == 6)
                 {
                     yCount++;
                     xCount = 0;
@@ -121,12 +127,13 @@ namespace AwesomePokerGameSln {
             return image;
         }
 
-        private void FrmPlaygame_FormClosed(object sender, FormClosedEventArgs e) {
+        private void FrmPlaygame_FormClosed(object sender, FormClosedEventArgs e)
+        {
             Player.Instance.savePlayerMoney(Player.Instance.getName(), Player.Instance.getMoney());
             Application.Exit(); // Gabrielle: Added this because it crashed every time I tried to close it 
-            //Adam: I think this comment info goes into the description when you merge branches and not in the code
+                                //Adam: I think this comment info goes into the description when you merge branches and not in the code
 
-    }
+        }
 
         // MadG: How the dealer thinks
         private void dealerThoughts()
@@ -162,7 +169,7 @@ namespace AwesomePokerGameSln {
             else if (round == 1)
             {
                 //Have dealer select cards to discard randomly
-                for(int i = 0; i < 5; i++)
+                for (int i = 0; i < 5; i++)
                 {
                     dealerDiscard = true;
                     int d = rand.Next(4); // MadG: less chance of discarding
@@ -206,7 +213,8 @@ namespace AwesomePokerGameSln {
                     turnBase();
                 }
             }
-            else if(round == 3){ //  Gabrielle: Added this cuz the game wouldn't end at the third round
+            else if (round == 3)
+            { //  Gabrielle: Added this cuz the game wouldn't end at the third round
                 winLose();
             }
             prizePool.Text = "Prize Pool: " + moneyPot;
@@ -412,23 +420,25 @@ namespace AwesomePokerGameSln {
             lblDealerHand.Visible = true;
         }
 
-        private void FrmPlaygame_Load(object sender, EventArgs e) {
-      deck = new Deck();
-      dealCards();
-    }
-    
-    //Resets everything
-    private void button1_Click(object sender, EventArgs e) { // Redeal
-      lblWinLose.Visible = false;
-      lblDealerHand.Visible = false;
-      playerFolded = false;
-      dealerFolded = false;
-      dealFold.Visible = false;
-      moneyPot = 0;
-      willDiscard = new bool[5];
-      dealerDiscard = false;
-      dealCards();
-    }
+        private void FrmPlaygame_Load(object sender, EventArgs e)
+        {
+            deck = new Deck();
+            dealCards();
+        }
+
+        //Resets everything
+        private void button1_Click(object sender, EventArgs e)
+        { // Redeal
+            lblWinLose.Visible = false;
+            lblDealerHand.Visible = false;
+            playerFolded = false;
+            dealerFolded = false;
+            dealFold.Visible = false;
+            moneyPot = 0;
+            willDiscard = new bool[5];
+            dealerDiscard = false;
+            dealCards();
+        }
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -446,7 +456,7 @@ namespace AwesomePokerGameSln {
             frmGamblingAddiction gamblingAddictionForm = new frmGamblingAddiction();
             gamblingAddictionForm.Show();
         }
-            // Gabrielle: send a report form generated when "Send A Report" is clicked
+        // Gabrielle: send a report form generated when "Send A Report" is clicked
         private void sendAReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmReport reportForm = new frmReport();
@@ -545,7 +555,7 @@ namespace AwesomePokerGameSln {
 
         private void button5_Click(object sender, EventArgs e) // Gabrielle: Call
         {
-            if(round == 0)
+            if (round == 0)
             {
                 Player.Instance.takeMoney(moneyPot);
                 updateMoney();
@@ -565,7 +575,7 @@ namespace AwesomePokerGameSln {
                 round++;
                 turnBase();
 
-                
+
             }
         }
 
