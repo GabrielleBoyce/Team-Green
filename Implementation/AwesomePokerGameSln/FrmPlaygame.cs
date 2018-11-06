@@ -57,7 +57,7 @@ namespace AwesomePokerGameSln {
 
             cards = new CardType[5];
             dealerHand = new Hand(cards);
-            dealerHand.setHidden(true); // Hide dealer cards
+            hideDealerCards();
             refreshCardPics("dealer");
 
             lblHandType.Text = playerHand.getHandType().ToString();
@@ -81,7 +81,7 @@ namespace AwesomePokerGameSln {
                 {
                     CardType card = deck.nextCard();
                     cards[index++] = card;
-                    playerCardPic.BackgroundImage = CardImageHelper.cardToBitmap(card, playerHand.isHidden());
+                    playerCardPic.BackgroundImage = CardImageHelper.cardToBitmap(card);
                 }
             }
             else if(p == "dealer")
@@ -90,7 +90,7 @@ namespace AwesomePokerGameSln {
                 {
                     CardType card = deck.nextCard();
                     cards[index++] = card;
-                    dealerCardPic.BackgroundImage = CardImageHelper.cardToBitmap(card, dealerHand.isHidden());
+                    dealerCardPic.BackgroundImage = CardImageHelper.cardToBitmap(card);
                 }
             }
         }
@@ -249,7 +249,7 @@ namespace AwesomePokerGameSln {
                     picHilight1.Visible = !picHilight1.Visible;
                     CardType card = deck.nextCard();
                     cards[0] = card;
-                    picCard1.BackgroundImage = CardImageHelper.cardToBitmap(card, x.isHidden());
+                    picCard1.BackgroundImage = CardImageHelper.cardToBitmap(card);
                 }
                 else
                 {
@@ -261,7 +261,7 @@ namespace AwesomePokerGameSln {
                     picHilight2.Visible = !picHilight2.Visible;
                     CardType card = deck.nextCard();
                     cards[1] = card;
-                    picCard2.BackgroundImage = CardImageHelper.cardToBitmap(card, x.isHidden());
+                    picCard2.BackgroundImage = CardImageHelper.cardToBitmap(card);
                 }
                 else
                 {
@@ -273,7 +273,7 @@ namespace AwesomePokerGameSln {
                     picHilight3.Visible = !picHilight3.Visible;
                     CardType card = deck.nextCard();
                     cards[2] = card;
-                    picCard3.BackgroundImage = CardImageHelper.cardToBitmap(card, x.isHidden());
+                    picCard3.BackgroundImage = CardImageHelper.cardToBitmap(card);
                 }
                 else
                 {
@@ -285,7 +285,7 @@ namespace AwesomePokerGameSln {
                     picHilight4.Visible = !picHilight4.Visible;
                     CardType card = deck.nextCard();
                     cards[3] = card;
-                    picCard4.BackgroundImage = CardImageHelper.cardToBitmap(card, x.isHidden());
+                    picCard4.BackgroundImage = CardImageHelper.cardToBitmap(card);
                 }
                 else
                 {
@@ -297,7 +297,7 @@ namespace AwesomePokerGameSln {
                     picHilight5.Visible = !picHilight5.Visible;
                     CardType card = deck.nextCard();
                     cards[4] = card;
-                    picCard5.BackgroundImage = CardImageHelper.cardToBitmap(card, x.isHidden());
+                    picCard5.BackgroundImage = CardImageHelper.cardToBitmap(card);
                 }
                 else
                 {
@@ -314,7 +314,7 @@ namespace AwesomePokerGameSln {
                 {
                     CardType card = deck.nextCard();
                     cards[0] = card;
-                    pictureBox1.BackgroundImage = CardImageHelper.cardToBitmap(card, x.isHidden());
+                    pictureBox1.BackgroundImage = CardImageHelper.cardToBitmap(card);
                 }
                 else
                 {
@@ -325,7 +325,7 @@ namespace AwesomePokerGameSln {
                 {
                     CardType card = deck.nextCard();
                     cards[1] = card;
-                    pictureBox2.BackgroundImage = CardImageHelper.cardToBitmap(card, x.isHidden());
+                    pictureBox2.BackgroundImage = CardImageHelper.cardToBitmap(card);
                 }
                 else
                 {
@@ -336,7 +336,7 @@ namespace AwesomePokerGameSln {
                 {
                     CardType card = deck.nextCard();
                     cards[2] = card;
-                    pictureBox3.BackgroundImage = CardImageHelper.cardToBitmap(card, x.isHidden());
+                    pictureBox3.BackgroundImage = CardImageHelper.cardToBitmap(card);
                 }
                 else
                 {
@@ -347,7 +347,7 @@ namespace AwesomePokerGameSln {
                 {
                     CardType card = deck.nextCard();
                     cards[3] = card;
-                    pictureBox4.BackgroundImage = CardImageHelper.cardToBitmap(card, x.isHidden());
+                    pictureBox4.BackgroundImage = CardImageHelper.cardToBitmap(card);
                 }
                 else
                 {
@@ -358,7 +358,7 @@ namespace AwesomePokerGameSln {
                 {
                     CardType card = deck.nextCard();
                     cards[4] = card;
-                    pictureBox5.BackgroundImage = CardImageHelper.cardToBitmap(card, x.isHidden());
+                    pictureBox5.BackgroundImage = CardImageHelper.cardToBitmap(card);
                 }
                 else
                 {
@@ -406,8 +406,7 @@ namespace AwesomePokerGameSln {
                 lblWinLose.Text = "FOLDED";
             }
 
-            dealerHand.setHidden(false);
-            refreshCardPics("dealer");
+            showDealerCards();
 
             lblWinLose.Visible = true;
             lblDealerHand.Visible = true;
@@ -530,15 +529,10 @@ namespace AwesomePokerGameSln {
             {
                 winLose();
             }
-
-            dealerHand.setHidden(true);
-            refreshCardPics("dealer");
         }
 
         private void button4_Click(object sender, EventArgs e) // Fold
         {
-            dealerHand.setHidden(false);
-            refreshCardPics("dealer");
             if (round == 0 || round == 2)
             {
                 // Fold and Lose
@@ -573,8 +567,24 @@ namespace AwesomePokerGameSln {
 
                 
             }
-            dealerHand.setHidden(true);
-            refreshCardPics("dealer");
+        }
+
+        public void hideDealerCards()
+        {
+            pictureBox8.Visible = true;
+            pictureBox9.Visible = true;
+            pictureBox10.Visible = true;
+            pictureBox11.Visible = true;
+            pictureBox12.Visible = true;
+        }
+
+        public void showDealerCards()
+        {
+            pictureBox8.Visible = false;
+            pictureBox9.Visible = false;
+            pictureBox10.Visible = false;
+            pictureBox11.Visible = false;
+            pictureBox12.Visible = false;
         }
 
         public static void change_background(Bitmap newimage) // Gabrielle: Changes the background image
@@ -589,6 +599,9 @@ namespace AwesomePokerGameSln {
             pictureBox6.Image = drawMoney();
         }
 
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
